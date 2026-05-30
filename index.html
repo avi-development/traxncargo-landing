@@ -165,9 +165,9 @@
             Open the app
             <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
           </a>
-          <a href="#contact" class="inline-flex items-center gap-2 bg-white border border-navy-900/15 hover:border-navy-900/30 transition px-6 py-3.5 rounded-xl font-semibold text-sm text-navy-900">
+          <button type="button" data-demo class="inline-flex items-center gap-2 bg-white border border-navy-900/15 hover:border-navy-900/30 transition px-6 py-3.5 rounded-xl font-semibold text-sm text-navy-900">
             Book a demo
-          </a>
+          </button>
         </div>
 
         <div class="mt-10 flex flex-wrap gap-6 text-sm text-navy-900/60">
@@ -725,9 +725,9 @@
           Open the app
           <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
         </a>
-        <a href="mailto:hello@traxn.in?subject=TraxnCargo%20demo" class="inline-flex items-center gap-2 bg-white border border-navy-900/15 hover:border-navy-900/30 transition px-7 py-4 rounded-xl font-semibold text-navy-900">
+        <button type="button" data-demo class="inline-flex items-center gap-2 bg-white border border-navy-900/15 hover:border-navy-900/30 transition px-7 py-4 rounded-xl font-semibold text-navy-900">
           Book a demo
-        </a>
+        </button>
       </div>
       <p class="mt-8 text-sm text-navy-900/55">Mail us at <a href="mailto:hello@traxn.in" class="text-sky-600 hover:text-sky-700 transition font-semibold">hello@traxn.in</a></p>
     </div>
@@ -753,6 +753,161 @@
     </div>
     <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
   </footer>
+
+  <!-- =================================================================== -->
+  <!-- DEMO MODAL — "Book a demo" / "Open the app" calls this open it.      -->
+  <!-- Submits to Firestore `leads` collection on cargologic-saas; the      -->
+  <!-- Super Admin sees new leads live.                                     -->
+  <!-- =================================================================== -->
+  <div id="demo-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-navy-900/70 backdrop-blur-sm p-4 overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="demo-modal-title">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6 md:p-8 relative my-auto">
+      <button id="demo-modal-close" type="button" aria-label="Close" class="absolute top-3 right-3 w-9 h-9 rounded-lg flex items-center justify-center text-navy-900/50 hover:text-navy-900 hover:bg-navy-50 transition">
+        <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+
+      <div id="demo-form-wrap">
+        <div class="text-[11px] uppercase tracking-[0.2em] text-sky-600 font-bold mb-3">Free onboarding</div>
+        <h2 id="demo-modal-title" class="font-display text-2xl md:text-3xl font-black text-navy-900 leading-tight mb-3">
+          Your Traxn workspace,<br/><span class="grad-text">customised in 24 hours.</span>
+        </h2>
+        <p class="text-navy-900/65 text-sm leading-relaxed mb-5">
+          Tell us about your fleet and we'll spin up your company, drop in your logo + bilty layout, configure your GSTIN, and import your first month of trips — within 24 hours. <span class="font-semibold text-navy-900">No setup fee. No payment till you're live.</span>
+        </p>
+
+        <form id="demo-form" class="space-y-3" novalidate>
+          <input name="name" type="text" required autocomplete="name" maxlength="100" placeholder="Your name *" class="w-full border border-navy-900/15 rounded-lg px-4 py-2.5 text-sm placeholder:text-navy-900/40 focus:outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 transition">
+          <input name="company" type="text" required autocomplete="organization" maxlength="120" placeholder="Company name *" class="w-full border border-navy-900/15 rounded-lg px-4 py-2.5 text-sm placeholder:text-navy-900/40 focus:outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 transition">
+          <div class="grid grid-cols-2 gap-3">
+            <input name="phone" type="tel" required autocomplete="tel" maxlength="20" placeholder="Phone *" class="w-full border border-navy-900/15 rounded-lg px-4 py-2.5 text-sm placeholder:text-navy-900/40 focus:outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 transition">
+            <input name="fleetSize" type="text" maxlength="40" placeholder="Fleet size" class="w-full border border-navy-900/15 rounded-lg px-4 py-2.5 text-sm placeholder:text-navy-900/40 focus:outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 transition">
+          </div>
+          <input name="email" type="email" required autocomplete="email" maxlength="160" placeholder="Email *" class="w-full border border-navy-900/15 rounded-lg px-4 py-2.5 text-sm placeholder:text-navy-900/40 focus:outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 transition">
+          <textarea name="message" rows="3" maxlength="1500" placeholder="What do you ship? Anything else we should know?" class="w-full border border-navy-900/15 rounded-lg px-4 py-2.5 text-sm placeholder:text-navy-900/40 focus:outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 transition resize-none"></textarea>
+
+          <div id="demo-error" class="hidden text-sm text-rose-600 bg-rose-50 border border-rose-200 px-3 py-2 rounded-lg"></div>
+
+          <button id="demo-submit" type="submit" class="w-full bg-sky-500 text-white rounded-lg py-3.5 font-bold text-sm shadow-cta hover:bg-sky-600 transition disabled:opacity-60 disabled:cursor-not-allowed">
+            Book my workspace setup
+          </button>
+          <p class="text-[11px] text-navy-900/45 text-center">By submitting you agree to be contacted within 24 hours.</p>
+        </form>
+      </div>
+
+      <div id="demo-success" class="hidden text-center py-6">
+        <div class="mx-auto w-14 h-14 rounded-full bg-emerald-50 flex items-center justify-center mb-4">
+          <svg viewBox="0 0 24 24" class="w-7 h-7 text-emerald-500" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        </div>
+        <h3 class="font-display text-2xl font-black text-navy-900 mb-2">We're on it.</h3>
+        <p class="text-navy-900/65 text-sm leading-relaxed">Our onboarding team will reach out on your phone &amp; email within 24 hours. Keep an eye out.</p>
+        <button id="demo-close-success" type="button" class="mt-6 inline-flex items-center gap-1.5 bg-navy-900 text-white hover:bg-navy-700 transition px-5 py-2.5 rounded-lg text-sm font-semibold">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal open/close — no Firebase needed -->
+  <script>
+    (function () {
+      var modal = document.getElementById('demo-modal');
+      if (!modal) return;
+      var closeBtn = document.getElementById('demo-modal-close');
+      var closeSuccessBtn = document.getElementById('demo-close-success');
+      var formWrap = document.getElementById('demo-form-wrap');
+      var success = document.getElementById('demo-success');
+      var errBox = document.getElementById('demo-error');
+
+      function open() {
+        formWrap.classList.remove('hidden');
+        success.classList.add('hidden');
+        errBox.classList.add('hidden');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+        setTimeout(function () {
+          var first = modal.querySelector('input');
+          if (first) first.focus();
+        }, 60);
+      }
+      function close() {
+        modal.classList.remove('flex');
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('[data-demo]').forEach(function (b) {
+        b.addEventListener('click', open);
+      });
+      if (closeBtn) closeBtn.addEventListener('click', close);
+      if (closeSuccessBtn) closeSuccessBtn.addEventListener('click', close);
+      modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !modal.classList.contains('hidden')) close();
+      });
+    })();
+  </script>
+
+  <!-- Firebase + form submit (writes to leads collection on cargologic-saas) -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
+    import { getFirestore, collection, addDoc, serverTimestamp }
+      from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+
+    const app = initializeApp({
+      apiKey: "AIzaSyAmJKD3Saep17Ij4jWN2vgZSypk17VjuZg",
+      authDomain: "cargologic-saas.firebaseapp.com",
+      projectId: "cargologic-saas",
+      storageBucket: "cargologic-saas.firebasestorage.app",
+      messagingSenderId: "1005412538844",
+      appId: "1:1005412538844:web:26e6ce0ae52c6065c3d719",
+    });
+    const db = getFirestore(app);
+
+    const form = document.getElementById('demo-form');
+    const submitBtn = document.getElementById('demo-submit');
+    const formWrap = document.getElementById('demo-form-wrap');
+    const successBox = document.getElementById('demo-success');
+    const errBox = document.getElementById('demo-error');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errBox.classList.add('hidden');
+
+      const fd = new FormData(form);
+      const data = {
+        name:      (fd.get('name')      || '').toString().trim().slice(0, 100),
+        company:   (fd.get('company')   || '').toString().trim().slice(0, 120),
+        phone:     (fd.get('phone')     || '').toString().trim().slice(0, 30),
+        email:     (fd.get('email')     || '').toString().trim().slice(0, 160),
+        fleetSize: (fd.get('fleetSize') || '').toString().trim().slice(0, 40),
+        message:   (fd.get('message')   || '').toString().trim().slice(0, 1500),
+        source:    'traxn.in',
+        status:    'new',
+        createdAt: serverTimestamp(),
+      };
+
+      if (!data.name || !data.company || !data.phone || !data.email) {
+        errBox.textContent = 'Please fill in name, company, phone, and email.';
+        errBox.classList.remove('hidden');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+      try {
+        await addDoc(collection(db, 'leads'), data);
+        formWrap.classList.add('hidden');
+        successBox.classList.remove('hidden');
+        form.reset();
+      } catch (err) {
+        console.error('[leads] submit failed', err);
+        errBox.textContent =
+          'Could not send right now. Please email us at hello@traxn.in.';
+        errBox.classList.remove('hidden');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Book my workspace setup';
+      }
+    });
+  </script>
 
   <!-- Auto-scroll the modules carousel on mobile.
        Advances one card every 3.5s; pauses while the user is swiping or
