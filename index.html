@@ -98,6 +98,16 @@
     .logo-mark { object-fit: contain; }
     .scrollbar-none::-webkit-scrollbar { display: none; }
     .scrollbar-none { scrollbar-width: none; -ms-overflow-style: none; }
+    @keyframes marquee-x {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .marquee-track { width: max-content; animation: marquee-x 35s linear infinite; }
+    .marquee-track:hover { animation-play-state: paused; }
+    .marquee-mask {
+      -webkit-mask-image: linear-gradient(to right, transparent 0, black 6%, black 94%, transparent 100%);
+              mask-image: linear-gradient(to right, transparent 0, black 6%, black 94%, transparent 100%);
+    }
   </style>
 </head>
 <body class="bg-white text-navy-900 selection:bg-sky-500/20 selection:text-navy-900">
@@ -229,16 +239,30 @@
   <section class="border-y border-navy-900/5 bg-navy-50/30">
     <div class="max-w-7xl mx-auto px-6 py-8">
       <p class="text-center text-[11px] uppercase tracking-[0.2em] text-navy-900/50 mb-5 font-bold">Built for transporters moving freight for heavy industry</p>
-      <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-navy-900/65 font-semibold text-sm">
-        <span>Sharp Ferro Alloys</span>
-        <span class="text-navy-900/20">·</span>
-        <span>Nilkanth Ferro Ltd.</span>
-        <span class="text-navy-900/20">·</span>
-        <span>Lalwani Ferro Alloys</span>
-        <span class="text-navy-900/20">·</span>
-        <span>JSIS Iron &amp; Steel</span>
-        <span class="text-navy-900/20">·</span>
-        <span>Vindhyawasni Logistics</span>
+      <!-- Continuous marquee — content duplicated for seamless loop, duplicate aria-hidden -->
+      <div class="relative overflow-hidden marquee-mask">
+        <div class="marquee-track flex gap-x-10 items-center whitespace-nowrap text-navy-900/65 font-semibold text-sm">
+          <span>Sharp Ferro Alloys</span>
+          <span class="text-navy-900/20">·</span>
+          <span>Nilkanth Ferro Ltd.</span>
+          <span class="text-navy-900/20">·</span>
+          <span>Lalwani Ferro Alloys</span>
+          <span class="text-navy-900/20">·</span>
+          <span>JSIS Iron &amp; Steel</span>
+          <span class="text-navy-900/20">·</span>
+          <span>Vindhyawasni Logistics</span>
+          <span class="text-navy-900/20">·</span>
+          <span aria-hidden="true">Sharp Ferro Alloys</span>
+          <span aria-hidden="true" class="text-navy-900/20">·</span>
+          <span aria-hidden="true">Nilkanth Ferro Ltd.</span>
+          <span aria-hidden="true" class="text-navy-900/20">·</span>
+          <span aria-hidden="true">Lalwani Ferro Alloys</span>
+          <span aria-hidden="true" class="text-navy-900/20">·</span>
+          <span aria-hidden="true">JSIS Iron &amp; Steel</span>
+          <span aria-hidden="true" class="text-navy-900/20">·</span>
+          <span aria-hidden="true">Vindhyawasni Logistics</span>
+          <span aria-hidden="true" class="text-navy-900/20">·</span>
+        </div>
       </div>
     </div>
   </section>
