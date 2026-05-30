@@ -254,8 +254,8 @@
         <p class="mt-4 text-navy-900/65 text-lg max-w-2xl">Each module is built around how road-transport actually runs in India — bilties, ferro-alloy clients, GST, weight annexures, missing-doc chases. Pick what you use, ignore what you don't.</p>
       </div>
 
-      <!-- Mobile = horizontal swipe carousel · sm+ = multi-col grid -->
-      <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 -mx-6 px-6 pb-4 scrollbar-none
+      <!-- Mobile = auto-scrolling swipe carousel · sm+ = multi-col grid -->
+      <div id="modules-carousel" class="flex overflow-x-auto snap-x snap-mandatory gap-4 -mx-6 px-6 pb-4 scrollbar-none
                   sm:grid sm:grid-cols-2 sm:overflow-visible sm:mx-0 sm:px-0 sm:pb-0
                   lg:grid-cols-3">
         <article class="card-light rounded-2xl p-6 snap-start shrink-0 w-[80%] sm:w-auto sm:shrink">
@@ -729,6 +729,56 @@
     </div>
     <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
   </footer>
+
+  <!-- Auto-scroll the modules carousel on mobile.
+       Advances one card every 3.5s; pauses while the user is swiping or
+       hovering; resumes a moment after they stop. Disabled on sm+ where
+       the section is a static grid. -->
+  <script>
+    (function () {
+      var c = document.getElementById('modules-carousel');
+      if (!c) return;
+      var STEP_MS = 3500;
+      var GAP_PX  = 16; // matches Tailwind gap-4
+      var timer   = null;
+      var paused  = false;
+
+      function isMobile() { return window.innerWidth < 640; }
+
+      function advance() {
+        if (!isMobile() || paused) return;
+        var first = c.children[0];
+        if (!first) return;
+        var step = first.getBoundingClientRect().width + GAP_PX;
+        var maxScroll = c.scrollWidth - c.clientWidth - 4;
+        if (c.scrollLeft >= maxScroll) {
+          c.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          c.scrollBy({ left: step, behavior: 'smooth' });
+        }
+      }
+
+      function start() {
+        stop();
+        if (isMobile()) timer = setInterval(advance, STEP_MS);
+      }
+      function stop() { if (timer) { clearInterval(timer); timer = null; } }
+
+      // Pause while the user is interacting; resume a beat after they finish.
+      var resumeT;
+      function pauseAndResume() {
+        paused = true;
+        clearTimeout(resumeT);
+        resumeT = setTimeout(function () { paused = false; }, 1800);
+      }
+      ['touchstart', 'pointerdown', 'mouseenter'].forEach(function (ev) {
+        c.addEventListener(ev, pauseAndResume, { passive: true });
+      });
+
+      window.addEventListener('resize', start);
+      start();
+    })();
+  </script>
 
 </body>
 </html>
