@@ -96,6 +96,8 @@
       background: linear-gradient(90deg, transparent, rgba(11,30,63,0.12), transparent);
     }
     .logo-mark { object-fit: contain; }
+    .scrollbar-none::-webkit-scrollbar { display: none; }
+    .scrollbar-none { scrollbar-width: none; -ms-overflow-style: none; }
   </style>
 </head>
 <body class="bg-white text-navy-900 selection:bg-sky-500/20 selection:text-navy-900">
@@ -252,8 +254,11 @@
         <p class="mt-4 text-navy-900/65 text-lg max-w-2xl">Each module is built around how road-transport actually runs in India — bilties, ferro-alloy clients, GST, weight annexures, missing-doc chases. Pick what you use, ignore what you don't.</p>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <article class="card-light rounded-2xl p-6">
+      <!-- Mobile = horizontal swipe carousel · sm+ = multi-col grid -->
+      <div class="flex overflow-x-auto snap-x snap-mandatory gap-4 -mx-6 px-6 pb-4 scrollbar-none
+                  sm:grid sm:grid-cols-2 sm:overflow-visible sm:mx-0 sm:px-0 sm:pb-0
+                  lg:grid-cols-3">
+        <article class="card-light rounded-2xl p-6 snap-start shrink-0 w-[80%] sm:w-auto sm:shrink">
           <div class="flex items-center gap-3 mb-3">
             <div class="w-9 h-9 rounded-lg bg-sky-500/10 text-sky-600 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h13l5 5v4h-2"/><path d="M16 18H8"/><path d="M5 18H3v-4l3-7h10"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></div>
             <h3 class="font-bold text-navy-900">Trip Management</h3>
@@ -261,7 +266,7 @@
           <p class="text-sm text-navy-900/65 leading-relaxed">Every truck movement: vehicle, vendor, route, qty, rate, freight, assigned staff. Date-range, search, 30/page.</p>
         </article>
 
-        <article class="card-light rounded-2xl p-6">
+        <article class="card-light rounded-2xl p-6 snap-start shrink-0 w-[80%] sm:w-auto sm:shrink">
           <div class="flex items-center gap-3 mb-3">
             <div class="w-9 h-9 rounded-lg bg-sky-500/10 text-sky-600 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"/><path d="M9 13h6"/><path d="M9 17h6"/></svg></div>
             <h3 class="font-bold text-navy-900">Bilty (LR) Management</h3>
@@ -269,7 +274,7 @@
           <p class="text-sm text-navy-900/65 leading-relaxed">Consignment notes on your letterhead, with your stamp &amp; signature. Mobile-friendly. PDF export ready for client + driver.</p>
         </article>
 
-        <article class="card-light rounded-2xl p-6">
+        <article class="card-light rounded-2xl p-6 snap-start shrink-0 w-[80%] sm:w-auto sm:shrink">
           <div class="flex items-center gap-3 mb-3">
             <div class="w-9 h-9 rounded-lg bg-sky-500/10 text-sky-600 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l9-7 9 7v12"/><path d="M9 22V12h6v10"/></svg></div>
             <h3 class="font-bold text-navy-900">Vendor (Client) Management</h3>
@@ -277,7 +282,7 @@
           <p class="text-sm text-navy-900/65 leading-relaxed">Client companies, GSTIN, billing terms. Per-vendor history of trips, invoices, outstanding dues at a glance.</p>
         </article>
 
-        <article class="card-light rounded-2xl p-6">
+        <article class="card-light rounded-2xl p-6 snap-start shrink-0 w-[80%] sm:w-auto sm:shrink">
           <div class="flex items-center gap-3 mb-3">
             <div class="w-9 h-9 rounded-lg bg-sky-500/10 text-sky-600 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8V21H3V3h11"/><path d="M16 3h5v5"/><path d="m21 3-7 7"/></svg></div>
             <h3 class="font-bold text-navy-900">Invoice Generation</h3>
@@ -285,7 +290,7 @@
           <p class="text-sm text-navy-900/65 leading-relaxed">One click turns a month of trips into a GST tax invoice + annexure. "Transportation Charges for {goods} from {consignor} to {consignee}", totals, stamp.</p>
         </article>
 
-        <article class="card-light rounded-2xl p-6">
+        <article class="card-light rounded-2xl p-6 snap-start shrink-0 w-[80%] sm:w-auto sm:shrink">
           <div class="flex items-center gap-3 mb-3">
             <div class="w-9 h-9 rounded-lg bg-sky-500/10 text-sky-600 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 17V9"/><path d="M12 17V5"/><path d="M17 17v-6"/></svg></div>
             <h3 class="font-bold text-navy-900">Annexure Generator</h3>
@@ -293,7 +298,7 @@
           <p class="text-sm text-navy-900/65 leading-relaxed">Gross / Net / Received weights. Net = Gross − Received. Freight = Rate × Received. Totals computed. PDF.</p>
         </article>
 
-        <article class="card-light rounded-2xl p-6">
+        <article class="card-light rounded-2xl p-6 snap-start shrink-0 w-[80%] sm:w-auto sm:shrink">
           <div class="flex items-center gap-3 mb-3">
             <div class="w-9 h-9 rounded-lg bg-sky-500/10 text-sky-600 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
             <h3 class="font-bold text-navy-900">Expense Tracking</h3>
@@ -301,7 +306,7 @@
           <p class="text-sm text-navy-900/65 leading-relaxed">Fuel, tolls, driver advances per trip. Freight auto-flows into Reports &amp; Analytics — no double entry.</p>
         </article>
 
-        <article class="card-light rounded-2xl p-6">
+        <article class="card-light rounded-2xl p-6 snap-start shrink-0 w-[80%] sm:w-auto sm:shrink">
           <div class="flex items-center gap-3 mb-3">
             <div class="w-9 h-9 rounded-lg bg-sky-500/10 text-sky-600 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8"/><path d="M12 8v8"/></svg></div>
             <h3 class="font-bold text-navy-900">Billing Reconciliation</h3>
@@ -309,7 +314,7 @@
           <p class="text-sm text-navy-900/65 leading-relaxed">Vendor-wise billed vs paid. Invoice-aware totals. Know exactly who owes what, today.</p>
         </article>
 
-        <article class="card-light rounded-2xl p-6">
+        <article class="card-light rounded-2xl p-6 snap-start shrink-0 w-[80%] sm:w-auto sm:shrink">
           <div class="flex items-center gap-3 mb-3">
             <div class="w-9 h-9 rounded-lg bg-sky-500/10 text-sky-600 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
             <h3 class="font-bold text-navy-900">Missing Bilty Tracker</h3>
@@ -317,7 +322,7 @@
           <p class="text-sm text-navy-900/65 leading-relaxed">Flags trips without an uploaded bilty so nothing leaks into next month's billing. Goal: stay at zero.</p>
         </article>
 
-        <article class="card-light rounded-2xl p-6">
+        <article class="card-light rounded-2xl p-6 snap-start shrink-0 w-[80%] sm:w-auto sm:shrink">
           <div class="flex items-center gap-3 mb-3">
             <div class="w-9 h-9 rounded-lg bg-sky-500/10 text-sky-600 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div>
             <h3 class="font-bold text-navy-900">Driver Upload Portal</h3>
@@ -325,7 +330,7 @@
           <p class="text-sm text-navy-900/65 leading-relaxed">Drivers upload PODs/bilties from a phone — no admin login. Documents land in the right trip instantly.</p>
         </article>
 
-        <article class="card-light rounded-2xl p-6">
+        <article class="card-light rounded-2xl p-6 snap-start shrink-0 w-[80%] sm:w-auto sm:shrink">
           <div class="flex items-center gap-3 mb-3">
             <div class="w-9 h-9 rounded-lg bg-sky-500/10 text-sky-600 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 14 4-4 4 4 5-5"/></svg></div>
             <h3 class="font-bold text-navy-900">Reports &amp; Analytics</h3>
@@ -333,7 +338,7 @@
           <p class="text-sm text-navy-900/65 leading-relaxed">Freight totals, expense breakdowns, vendor-wise summaries. Today, this week, this month — built-in date ranges.</p>
         </article>
 
-        <article class="card-light rounded-2xl p-6">
+        <article class="card-light rounded-2xl p-6 snap-start shrink-0 w-[80%] sm:w-auto sm:shrink">
           <div class="flex items-center gap-3 mb-3">
             <div class="w-9 h-9 rounded-lg bg-sky-500/10 text-sky-600 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></div>
             <h3 class="font-bold text-navy-900">Notifications (ntfy)</h3>
@@ -341,7 +346,7 @@
           <p class="text-sm text-navy-900/65 leading-relaxed">Admin / manager broadcasts to staff or drivers. Auto-pings on new invoice, trip, bilty, vendor.</p>
         </article>
 
-        <article class="card-light rounded-2xl p-6">
+        <article class="card-light rounded-2xl p-6 snap-start shrink-0 w-[80%] sm:w-auto sm:shrink">
           <div class="flex items-center gap-3 mb-3">
             <div class="w-9 h-9 rounded-lg bg-sky-500/10 text-sky-600 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><path d="m16 11 2 2 4-4"/></svg></div>
             <h3 class="font-bold text-navy-900">Role-Based Access</h3>
@@ -349,7 +354,7 @@
           <p class="text-sm text-navy-900/65 leading-relaxed">Admin · Manager · Staff (per-module) · Driver · Super Admin. Staff only sees what's theirs.</p>
         </article>
 
-        <article class="card-light rounded-2xl p-6">
+        <article class="card-light rounded-2xl p-6 snap-start shrink-0 w-[80%] sm:w-auto sm:shrink">
           <div class="flex items-center gap-3 mb-3">
             <div class="w-9 h-9 rounded-lg bg-sky-500/10 text-sky-600 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9"/><path d="M21 3v6h-6"/></svg></div>
             <h3 class="font-bold text-navy-900">Live Multi-User Sync</h3>
