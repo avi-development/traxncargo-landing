@@ -5,14 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>TraxnCargo — Bilty to billing, without the spreadsheets</title>
   <meta name="description" content="The live operating system for Indian road-transport companies moving freight for heavy industry. Trips, bilties, GST invoices, annexures, reconciliation — one screen, every user, in real time.">
-  <meta name="theme-color" content="#020617">
+  <meta name="theme-color" content="#ffffff">
 
   <!-- Open Graph -->
   <meta property="og:title" content="TraxnCargo — Logistics OS for Heavy Industry">
   <meta property="og:description" content="From bilty to billing, without the spreadsheets. Trips, bilties, GST invoices, annexures, reconciliation — live, multi-user, one screen.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://traxn.in">
+  <meta property="og:image" content="https://traxn.in/assets/logo.jpeg">
 
+  <link rel="icon" href="/assets/logo.jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
@@ -27,20 +29,31 @@
             mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
           },
           colors: {
-            brand: {
-              50: '#ecfeff',
-              100: '#cffafe',
-              200: '#a5f3fc',
-              300: '#67e8f9',
-              400: '#22d3ee',
-              500: '#06b6d4',
-              600: '#0891b2',
+            // Pulled straight from your logo
+            navy: {
+              50:  '#f0f4fa',
+              100: '#dbe5f0',
+              200: '#b5c8de',
+              300: '#7e9ac3',
+              500: '#2a4c7d',
+              700: '#173361',
+              900: '#0B1E3F', // logo navy
+              950: '#06122b',
+            },
+            sky: {
+              50:  '#eefaff',
+              100: '#d8f3ff',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#00AEEF', // logo cyan
+              600: '#0090c4',
               700: '#0e7490',
-              ink: '#001F3F',
-            }
+            },
           },
           boxShadow: {
-            glow: '0 0 80px -10px rgba(34, 211, 238, 0.45)',
+            soft: '0 1px 2px rgba(11,30,63,0.04), 0 8px 24px -8px rgba(11,30,63,0.08)',
+            ring: '0 0 0 1px rgba(11,30,63,0.06), 0 12px 40px -12px rgba(11,30,63,0.18)',
+            cta:  '0 10px 30px -10px rgba(0,174,239,0.55)',
           },
         }
       }
@@ -48,64 +61,63 @@
   </script>
   <style>
     body { font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
-    .font-display { font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif; letter-spacing: -0.02em; }
+    .font-display { font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif; letter-spacing: -0.025em; }
     .grad-text {
-      background: linear-gradient(90deg, #22d3ee 0%, #38bdf8 50%, #a78bfa 100%);
+      background: linear-gradient(90deg, #0B1E3F 0%, #1a4a8a 55%, #00AEEF 100%);
       -webkit-background-clip: text; background-clip: text; color: transparent;
     }
-    .mesh {
+    .hero-mesh {
       background:
-        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(34,211,238,0.18), transparent 60%),
-        radial-gradient(ellipse 60% 40% at 90% 10%, rgba(167,139,250,0.12), transparent 60%),
-        radial-gradient(ellipse 60% 40% at 10% 30%, rgba(14,165,233,0.10), transparent 60%);
+        radial-gradient(ellipse 70% 50% at 80% 0%, rgba(0,174,239,0.10), transparent 60%),
+        radial-gradient(ellipse 60% 40% at 10% 10%, rgba(11,30,63,0.05), transparent 60%),
+        linear-gradient(180deg, #ffffff 0%, #f6fbff 100%);
     }
     .grid-bg {
       background-image:
-        linear-gradient(rgba(148,163,184,0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(148,163,184,0.06) 1px, transparent 1px);
+        linear-gradient(rgba(11,30,63,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(11,30,63,0.06) 1px, transparent 1px);
       background-size: 56px 56px;
+      mask-image: radial-gradient(ellipse 60% 50% at 50% 40%, #000 30%, transparent 70%);
     }
-    .card {
-      background: linear-gradient(180deg, rgba(15,23,42,0.7) 0%, rgba(2,6,23,0.7) 100%);
-      border: 1px solid rgba(148,163,184,0.12);
-      backdrop-filter: blur(10px);
+    .card-light {
+      background: #ffffff;
+      border: 1px solid rgba(11,30,63,0.08);
+      transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
     }
-    .card:hover { border-color: rgba(34,211,238,0.4); transform: translateY(-2px); }
-    .card { transition: all .25s ease; }
-    .pill { border: 1px solid rgba(148,163,184,0.2); }
+    .card-light:hover {
+      border-color: rgba(0,174,239,0.4);
+      box-shadow: 0 1px 2px rgba(11,30,63,0.04), 0 14px 40px -10px rgba(11,30,63,0.12);
+      transform: translateY(-2px);
+    }
     .num { font-variant-numeric: tabular-nums; }
-    .marquee { animation: scroll 40s linear infinite; }
-    @keyframes scroll {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
+    .pill { border: 1px solid rgba(11,30,63,0.10); background: rgba(255,255,255,0.6); backdrop-filter: blur(6px); }
+    .x-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(11,30,63,0.12), transparent);
     }
-    .ring-glow { box-shadow: 0 0 0 1px rgba(34,211,238,0.25), 0 0 80px -20px rgba(34,211,238,0.5); }
-    .scrollbar-none::-webkit-scrollbar { display: none; }
-    .scrollbar-none { scrollbar-width: none; }
+    .logo-mark { object-fit: contain; }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-100 selection:bg-brand-400/30 selection:text-white">
+<body class="bg-white text-navy-900 selection:bg-sky-500/20 selection:text-navy-900">
 
   <!-- =================================================================== -->
   <!-- NAV                                                                  -->
   <!-- =================================================================== -->
-  <header class="fixed top-0 inset-x-0 z-40 backdrop-blur-md bg-slate-950/60 border-b border-slate-800/60">
-    <div class="max-w-7xl mx-auto px-6 py-3.5 flex items-center justify-between">
-      <a href="#top" class="flex items-center gap-2.5 group">
-        <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-400 to-violet-500 flex items-center justify-center shadow-glow">
-          <svg viewBox="0 0 24 24" class="w-4 h-4 text-slate-950" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h13l5 5v4h-2"/><path d="M16 18H8"/><path d="M5 18H3v-4l3-7h10"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
-        </div>
-        <span class="font-display font-extrabold text-lg tracking-tight">Traxn<span class="text-brand-400">Cargo</span></span>
+  <header class="fixed top-0 inset-x-0 z-40 backdrop-blur-md bg-white/80 border-b border-navy-900/5">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-2 group">
+        <img src="./assets/logo.jpeg" alt="Traxn" class="h-8 w-auto logo-mark" width="160" height="50">
+        <span class="font-display font-extrabold text-base text-sky-500 leading-none -ml-1">Cargo</span>
       </a>
-      <nav class="hidden md:flex items-center gap-8 text-sm text-slate-300">
-        <a href="#modules" class="hover:text-white transition">Modules</a>
-        <a href="#usecases" class="hover:text-white transition">Use cases</a>
-        <a href="#different" class="hover:text-white transition">Why us</a>
-        <a href="#contact" class="hover:text-white transition">Contact</a>
+      <nav class="hidden md:flex items-center gap-8 text-sm text-navy-900/70 font-medium">
+        <a href="#modules" class="hover:text-navy-900 transition">Modules</a>
+        <a href="#usecases" class="hover:text-navy-900 transition">Use cases</a>
+        <a href="#different" class="hover:text-navy-900 transition">Why us</a>
+        <a href="#contact" class="hover:text-navy-900 transition">Contact</a>
       </nav>
       <div class="flex items-center gap-3">
-        <a href="https://app.traxn.in" class="hidden sm:inline-flex text-sm text-slate-300 hover:text-white transition">Sign in</a>
-        <a href="https://app.traxn.in" class="inline-flex items-center gap-1.5 bg-white text-slate-900 hover:bg-brand-400 hover:text-slate-950 transition px-4 py-2 rounded-lg text-sm font-semibold">
+        <a href="https://app.traxn.in" class="hidden sm:inline-flex text-sm text-navy-900/70 hover:text-navy-900 transition font-medium">Sign in</a>
+        <a href="https://app.traxn.in" class="inline-flex items-center gap-1.5 bg-navy-900 text-white hover:bg-navy-700 transition px-4 py-2 rounded-lg text-sm font-semibold">
           Open the app
           <svg viewBox="0 0 24 24" class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
         </a>
@@ -116,96 +128,95 @@
   <!-- =================================================================== -->
   <!-- HERO                                                                 -->
   <!-- =================================================================== -->
-  <section id="top" class="relative pt-32 pb-24 overflow-hidden mesh">
+  <section id="top" class="relative pt-32 pb-24 overflow-hidden hero-mesh">
     <div class="absolute inset-0 grid-bg opacity-60 pointer-events-none"></div>
-    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full bg-brand-400/10 blur-3xl pointer-events-none"></div>
 
     <div class="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center">
       <!-- Left: copy -->
       <div class="lg:col-span-7">
-        <div class="inline-flex items-center gap-2 pill rounded-full px-3 py-1 mb-6 text-[11px] font-bold tracking-[0.18em] text-brand-300 uppercase">
-          <span class="h-1.5 w-1.5 rounded-full bg-brand-400 animate-pulse"></span>
+        <div class="inline-flex items-center gap-2 pill rounded-full px-3 py-1 mb-6 text-[11px] font-bold tracking-[0.18em] text-sky-600 uppercase">
+          <span class="h-1.5 w-1.5 rounded-full bg-sky-500 animate-pulse"></span>
           Logistics OS · Built for India
         </div>
 
-        <h1 class="font-display text-5xl md:text-7xl font-black leading-[0.95] tracking-tight">
+        <h1 class="font-display text-5xl md:text-7xl font-black leading-[0.95] tracking-tight text-navy-900">
           Every trip. Every bilty.<br/>
           Every rupee.
           <span class="grad-text">One screen.</span>
         </h1>
 
-        <p class="mt-6 text-lg md:text-xl text-slate-400 max-w-2xl leading-relaxed">
+        <p class="mt-6 text-lg md:text-xl text-navy-900/65 max-w-2xl leading-relaxed">
           TraxnCargo is the live, multi-user operating system for road-transport companies moving freight for heavy industry — steel, ferro alloys, foundries, manufacturing. Bilty to billing, without the spreadsheets.
         </p>
 
         <div class="mt-8 flex flex-wrap gap-3">
-          <a href="https://app.traxn.in" class="inline-flex items-center gap-2 bg-brand-400 text-slate-950 hover:bg-brand-300 transition px-6 py-3.5 rounded-xl font-bold text-sm shadow-glow">
+          <a href="https://app.traxn.in" class="inline-flex items-center gap-2 bg-sky-500 text-white hover:bg-sky-600 transition px-6 py-3.5 rounded-xl font-bold text-sm shadow-cta">
             Open the app
             <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
           </a>
-          <a href="#contact" class="inline-flex items-center gap-2 pill bg-slate-900/50 hover:bg-slate-800/50 transition px-6 py-3.5 rounded-xl font-semibold text-sm">
+          <a href="#contact" class="inline-flex items-center gap-2 bg-white border border-navy-900/15 hover:border-navy-900/30 transition px-6 py-3.5 rounded-xl font-semibold text-sm text-navy-900">
             Book a demo
           </a>
         </div>
 
-        <div class="mt-10 flex flex-wrap gap-6 text-sm text-slate-400">
-          <div class="flex items-center gap-2"><svg viewBox="0 0 24 24" class="w-4 h-4 text-brand-400" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> GST tax invoices</div>
-          <div class="flex items-center gap-2"><svg viewBox="0 0 24 24" class="w-4 h-4 text-brand-400" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Live multi-user sync</div>
-          <div class="flex items-center gap-2"><svg viewBox="0 0 24 24" class="w-4 h-4 text-brand-400" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Your letterhead + stamp</div>
-          <div class="flex items-center gap-2"><svg viewBox="0 0 24 24" class="w-4 h-4 text-brand-400" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Mobile-friendly</div>
+        <div class="mt-10 flex flex-wrap gap-6 text-sm text-navy-900/60">
+          <div class="flex items-center gap-2"><svg viewBox="0 0 24 24" class="w-4 h-4 text-sky-500" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> GST tax invoices</div>
+          <div class="flex items-center gap-2"><svg viewBox="0 0 24 24" class="w-4 h-4 text-sky-500" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Live multi-user sync</div>
+          <div class="flex items-center gap-2"><svg viewBox="0 0 24 24" class="w-4 h-4 text-sky-500" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Your letterhead + stamp</div>
+          <div class="flex items-center gap-2"><svg viewBox="0 0 24 24" class="w-4 h-4 text-sky-500" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Mobile-friendly</div>
         </div>
       </div>
 
-      <!-- Right: visual mock -->
+      <!-- Right: dashboard mock -->
       <div class="lg:col-span-5 relative">
-        <div class="relative ring-glow rounded-2xl card p-5 -rotate-1">
+        <div class="relative card-light rounded-2xl p-5 shadow-ring -rotate-1">
           <div class="flex items-center justify-between mb-4">
-            <div class="flex items-center gap-2 text-xs text-slate-400">
-              <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <div class="flex items-center gap-2 text-xs text-navy-900/60 font-medium">
+              <span class="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
               Live · Trip Management
             </div>
-            <div class="text-[10px] font-mono text-slate-500">app.traxn.in/trips</div>
+            <div class="text-[10px] font-mono text-navy-900/40">app.traxn.in/trips</div>
           </div>
-          <div class="space-y-2 text-sm">
-            <div class="grid grid-cols-12 gap-2 text-[10px] uppercase tracking-wider text-slate-500 pb-2 border-b border-slate-800">
+          <div class="space-y-1 text-sm">
+            <div class="grid grid-cols-12 gap-2 text-[10px] uppercase tracking-wider text-navy-900/50 pb-2 border-b border-navy-900/10 font-semibold">
               <span class="col-span-3">Date · Vehicle</span><span class="col-span-4">Vendor</span><span class="col-span-3">Route</span><span class="col-span-2 text-right">Freight</span>
             </div>
-            <div class="grid grid-cols-12 gap-2 py-2 px-2 -mx-2 rounded-lg bg-brand-400/5 ring-1 ring-brand-400/30">
-              <span class="col-span-3"><span class="block text-slate-300 font-medium">30/05 · WB-39C/3006</span></span>
-              <span class="col-span-4 text-slate-300">Sharp Ferro Alloys</span>
-              <span class="col-span-3 text-slate-400">Jamuria → Kamalpur</span>
-              <span class="col-span-2 text-right text-brand-300 font-semibold num">₹38,500</span>
+            <div class="grid grid-cols-12 gap-2 py-2.5 px-2 -mx-2 rounded-lg bg-sky-500/8 ring-1 ring-sky-500/30">
+              <span class="col-span-3"><span class="block text-navy-900 font-semibold">30/05 · WB-39C/3006</span></span>
+              <span class="col-span-4 text-navy-900/80">Sharp Ferro Alloys</span>
+              <span class="col-span-3 text-navy-900/60">Jamuria → Kamalpur</span>
+              <span class="col-span-2 text-right text-sky-600 font-bold num">₹38,500</span>
             </div>
-            <div class="grid grid-cols-12 gap-2 py-2 px-2">
-              <span class="col-span-3 text-slate-400">30/05 · NL-01AB/5585</span>
-              <span class="col-span-4 text-slate-400">Sharp Ferro Alloys</span>
-              <span class="col-span-3 text-slate-500">Mangalpur → Kamalpur</span>
-              <span class="col-span-2 text-right text-slate-300 num">₹42,100</span>
+            <div class="grid grid-cols-12 gap-2 py-2.5 px-2">
+              <span class="col-span-3 text-navy-900/70">30/05 · NL-01AB/5585</span>
+              <span class="col-span-4 text-navy-900/70">Sharp Ferro Alloys</span>
+              <span class="col-span-3 text-navy-900/50">Mangalpur → Kamalpur</span>
+              <span class="col-span-2 text-right text-navy-900/80 num">₹42,100</span>
             </div>
-            <div class="grid grid-cols-12 gap-2 py-2 px-2">
-              <span class="col-span-3 text-slate-400">29/05 · WB-37D/4305</span>
-              <span class="col-span-4 text-slate-400">Nilkanth Ferro</span>
-              <span class="col-span-3 text-slate-500">Radhamadhabpur → Burnpur</span>
-              <span class="col-span-2 text-right text-slate-300 num">₹31,200</span>
+            <div class="grid grid-cols-12 gap-2 py-2.5 px-2">
+              <span class="col-span-3 text-navy-900/70">29/05 · WB-37D/4305</span>
+              <span class="col-span-4 text-navy-900/70">Nilkanth Ferro</span>
+              <span class="col-span-3 text-navy-900/50">Radhamadhabpur → Burnpur</span>
+              <span class="col-span-2 text-right text-navy-900/80 num">₹31,200</span>
             </div>
-            <div class="grid grid-cols-12 gap-2 py-2 px-2">
-              <span class="col-span-3 text-slate-400">29/05 · WB-49N/0406</span>
-              <span class="col-span-4 text-slate-400">Lalwani Ferro Alloys</span>
-              <span class="col-span-3 text-slate-500">Jamuria → Barjora</span>
-              <span class="col-span-2 text-right text-slate-300 num">₹29,800</span>
+            <div class="grid grid-cols-12 gap-2 py-2.5 px-2">
+              <span class="col-span-3 text-navy-900/70">29/05 · WB-49N/0406</span>
+              <span class="col-span-4 text-navy-900/70">Lalwani Ferro Alloys</span>
+              <span class="col-span-3 text-navy-900/50">Jamuria → Barjora</span>
+              <span class="col-span-2 text-right text-navy-900/80 num">₹29,800</span>
             </div>
           </div>
-          <div class="mt-4 flex items-center justify-between pt-4 border-t border-slate-800">
-            <div class="text-xs text-slate-500">May 2026 · 142 trips</div>
-            <div class="text-xs font-semibold text-brand-300 num">Billed ₹54.2 L · Due ₹12.1 L</div>
+          <div class="mt-4 flex items-center justify-between pt-4 border-t border-navy-900/10">
+            <div class="text-xs text-navy-900/50">May 2026 · 142 trips</div>
+            <div class="text-xs font-bold text-navy-900 num">Billed ₹54.2 L · Due ₹12.1 L</div>
           </div>
         </div>
 
         <!-- Floating stat -->
-        <div class="absolute -bottom-6 -left-6 card rounded-xl p-4 w-44 rotate-2 hidden sm:block">
-          <div class="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Bilties this month</div>
-          <div class="font-display text-2xl font-black num">128</div>
-          <div class="text-[11px] text-emerald-400 mt-1">▲ 23% vs Apr</div>
+        <div class="absolute -bottom-6 -left-6 card-light rounded-xl p-4 w-44 rotate-2 hidden sm:block shadow-ring">
+          <div class="text-[10px] uppercase tracking-widest text-navy-900/50 font-bold mb-1">Bilties this month</div>
+          <div class="font-display text-2xl font-black num text-navy-900">128</div>
+          <div class="text-[11px] text-emerald-600 mt-1 font-semibold">▲ 23% vs Apr</div>
         </div>
       </div>
     </div>
@@ -214,18 +225,18 @@
   <!-- =================================================================== -->
   <!-- TRUST STRIP                                                          -->
   <!-- =================================================================== -->
-  <section class="border-y border-slate-800/60 bg-slate-950/50">
+  <section class="border-y border-navy-900/5 bg-navy-50/30">
     <div class="max-w-7xl mx-auto px-6 py-8">
-      <p class="text-center text-[11px] uppercase tracking-[0.2em] text-slate-500 mb-5">Built for transporters moving freight for heavy industry</p>
-      <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-slate-400 font-semibold text-sm">
+      <p class="text-center text-[11px] uppercase tracking-[0.2em] text-navy-900/50 mb-5 font-bold">Built for transporters moving freight for heavy industry</p>
+      <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-navy-900/65 font-semibold text-sm">
         <span>Sharp Ferro Alloys</span>
-        <span class="text-slate-700">·</span>
+        <span class="text-navy-900/20">·</span>
         <span>Nilkanth Ferro Ltd.</span>
-        <span class="text-slate-700">·</span>
+        <span class="text-navy-900/20">·</span>
         <span>Lalwani Ferro Alloys</span>
-        <span class="text-slate-700">·</span>
+        <span class="text-navy-900/20">·</span>
         <span>JSIS Iron &amp; Steel</span>
-        <span class="text-slate-700">·</span>
+        <span class="text-navy-900/20">·</span>
         <span>Vindhyawasni Logistics</span>
       </div>
     </div>
@@ -237,115 +248,114 @@
   <section id="modules" class="relative py-24">
     <div class="max-w-7xl mx-auto px-6">
       <div class="max-w-3xl mb-14">
-        <div class="text-[11px] uppercase tracking-[0.2em] text-brand-300 font-bold mb-4">The modules</div>
-        <h2 class="font-display text-4xl md:text-5xl font-black leading-tight">Thirteen tools, <span class="grad-text">one workspace.</span></h2>
-        <p class="mt-4 text-slate-400 text-lg max-w-2xl">Each module is built around how road-transport actually runs in India — bilties, ferro-alloy clients, GST, weight annexures, missing-doc chases. Pick what you use, ignore what you don't.</p>
+        <div class="text-[11px] uppercase tracking-[0.2em] text-sky-600 font-bold mb-4">The modules</div>
+        <h2 class="font-display text-4xl md:text-5xl font-black leading-tight text-navy-900">Thirteen tools, <span class="grad-text">one workspace.</span></h2>
+        <p class="mt-4 text-navy-900/65 text-lg max-w-2xl">Each module is built around how road-transport actually runs in India — bilties, ferro-alloy clients, GST, weight annexures, missing-doc chases. Pick what you use, ignore what you don't.</p>
       </div>
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <!-- Card template repeated for each module -->
-        <article class="card rounded-2xl p-6">
+        <article class="card-light rounded-2xl p-6">
           <div class="flex items-center gap-3 mb-3">
-            <div class="w-9 h-9 rounded-lg bg-brand-400/15 text-brand-300 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h13l5 5v4h-2"/><path d="M16 18H8"/><path d="M5 18H3v-4l3-7h10"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></div>
-            <h3 class="font-semibold">Trip Management</h3>
+            <div class="w-9 h-9 rounded-lg bg-sky-500/10 text-sky-600 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h13l5 5v4h-2"/><path d="M16 18H8"/><path d="M5 18H3v-4l3-7h10"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></div>
+            <h3 class="font-bold text-navy-900">Trip Management</h3>
           </div>
-          <p class="text-sm text-slate-400 leading-relaxed">Every truck movement: vehicle, vendor, route, qty, rate, freight, assigned staff. Date-range, search, 30/page.</p>
+          <p class="text-sm text-navy-900/65 leading-relaxed">Every truck movement: vehicle, vendor, route, qty, rate, freight, assigned staff. Date-range, search, 30/page.</p>
         </article>
 
-        <article class="card rounded-2xl p-6">
+        <article class="card-light rounded-2xl p-6">
           <div class="flex items-center gap-3 mb-3">
-            <div class="w-9 h-9 rounded-lg bg-brand-400/15 text-brand-300 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"/><path d="M9 13h6"/><path d="M9 17h6"/></svg></div>
-            <h3 class="font-semibold">Bilty (LR) Management</h3>
+            <div class="w-9 h-9 rounded-lg bg-sky-500/10 text-sky-600 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"/><path d="M9 13h6"/><path d="M9 17h6"/></svg></div>
+            <h3 class="font-bold text-navy-900">Bilty (LR) Management</h3>
           </div>
-          <p class="text-sm text-slate-400 leading-relaxed">Consignment notes on your letterhead, with your stamp &amp; signature. Mobile-friendly. PDF export ready for client + driver.</p>
+          <p class="text-sm text-navy-900/65 leading-relaxed">Consignment notes on your letterhead, with your stamp &amp; signature. Mobile-friendly. PDF export ready for client + driver.</p>
         </article>
 
-        <article class="card rounded-2xl p-6">
+        <article class="card-light rounded-2xl p-6">
           <div class="flex items-center gap-3 mb-3">
-            <div class="w-9 h-9 rounded-lg bg-brand-400/15 text-brand-300 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l9-7 9 7v12"/><path d="M9 22V12h6v10"/></svg></div>
-            <h3 class="font-semibold">Vendor (Client) Management</h3>
+            <div class="w-9 h-9 rounded-lg bg-sky-500/10 text-sky-600 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V9l9-7 9 7v12"/><path d="M9 22V12h6v10"/></svg></div>
+            <h3 class="font-bold text-navy-900">Vendor (Client) Management</h3>
           </div>
-          <p class="text-sm text-slate-400 leading-relaxed">Client companies, GSTIN, billing terms. Per-vendor history of trips, invoices, outstanding dues at a glance.</p>
+          <p class="text-sm text-navy-900/65 leading-relaxed">Client companies, GSTIN, billing terms. Per-vendor history of trips, invoices, outstanding dues at a glance.</p>
         </article>
 
-        <article class="card rounded-2xl p-6">
+        <article class="card-light rounded-2xl p-6">
           <div class="flex items-center gap-3 mb-3">
-            <div class="w-9 h-9 rounded-lg bg-brand-400/15 text-brand-300 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8V21H3V3h11"/><path d="M16 3h5v5"/><path d="m21 3-7 7"/></svg></div>
-            <h3 class="font-semibold">Invoice Generation</h3>
+            <div class="w-9 h-9 rounded-lg bg-sky-500/10 text-sky-600 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8V21H3V3h11"/><path d="M16 3h5v5"/><path d="m21 3-7 7"/></svg></div>
+            <h3 class="font-bold text-navy-900">Invoice Generation</h3>
           </div>
-          <p class="text-sm text-slate-400 leading-relaxed">One click turns a month of trips into a GST tax invoice + annexure. "Transportation Charges for {goods} from {consignor} to {consignee}", totals, stamp.</p>
+          <p class="text-sm text-navy-900/65 leading-relaxed">One click turns a month of trips into a GST tax invoice + annexure. "Transportation Charges for {goods} from {consignor} to {consignee}", totals, stamp.</p>
         </article>
 
-        <article class="card rounded-2xl p-6">
+        <article class="card-light rounded-2xl p-6">
           <div class="flex items-center gap-3 mb-3">
-            <div class="w-9 h-9 rounded-lg bg-brand-400/15 text-brand-300 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 17V9"/><path d="M12 17V5"/><path d="M17 17v-6"/></svg></div>
-            <h3 class="font-semibold">Annexure Generator</h3>
+            <div class="w-9 h-9 rounded-lg bg-sky-500/10 text-sky-600 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 17V9"/><path d="M12 17V5"/><path d="M17 17v-6"/></svg></div>
+            <h3 class="font-bold text-navy-900">Annexure Generator</h3>
           </div>
-          <p class="text-sm text-slate-400 leading-relaxed">Gross / Net / Received weights. Net = Gross − Received. Freight = Rate × Received. Totals computed. PDF.</p>
+          <p class="text-sm text-navy-900/65 leading-relaxed">Gross / Net / Received weights. Net = Gross − Received. Freight = Rate × Received. Totals computed. PDF.</p>
         </article>
 
-        <article class="card rounded-2xl p-6">
+        <article class="card-light rounded-2xl p-6">
           <div class="flex items-center gap-3 mb-3">
-            <div class="w-9 h-9 rounded-lg bg-brand-400/15 text-brand-300 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-            <h3 class="font-semibold">Expense Tracking</h3>
+            <div class="w-9 h-9 rounded-lg bg-sky-500/10 text-sky-600 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+            <h3 class="font-bold text-navy-900">Expense Tracking</h3>
           </div>
-          <p class="text-sm text-slate-400 leading-relaxed">Fuel, tolls, driver advances per trip. Freight auto-flows into Reports &amp; Analytics — no double entry.</p>
+          <p class="text-sm text-navy-900/65 leading-relaxed">Fuel, tolls, driver advances per trip. Freight auto-flows into Reports &amp; Analytics — no double entry.</p>
         </article>
 
-        <article class="card rounded-2xl p-6">
+        <article class="card-light rounded-2xl p-6">
           <div class="flex items-center gap-3 mb-3">
-            <div class="w-9 h-9 rounded-lg bg-brand-400/15 text-brand-300 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8"/><path d="M12 8v8"/></svg></div>
-            <h3 class="font-semibold">Billing Reconciliation</h3>
+            <div class="w-9 h-9 rounded-lg bg-sky-500/10 text-sky-600 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8"/><path d="M12 8v8"/></svg></div>
+            <h3 class="font-bold text-navy-900">Billing Reconciliation</h3>
           </div>
-          <p class="text-sm text-slate-400 leading-relaxed">Vendor-wise billed vs paid. Invoice-aware totals. Know exactly who owes what, today.</p>
+          <p class="text-sm text-navy-900/65 leading-relaxed">Vendor-wise billed vs paid. Invoice-aware totals. Know exactly who owes what, today.</p>
         </article>
 
-        <article class="card rounded-2xl p-6">
+        <article class="card-light rounded-2xl p-6">
           <div class="flex items-center gap-3 mb-3">
-            <div class="w-9 h-9 rounded-lg bg-brand-400/15 text-brand-300 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
-            <h3 class="font-semibold">Missing Bilty Tracker</h3>
+            <div class="w-9 h-9 rounded-lg bg-sky-500/10 text-sky-600 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg></div>
+            <h3 class="font-bold text-navy-900">Missing Bilty Tracker</h3>
           </div>
-          <p class="text-sm text-slate-400 leading-relaxed">Flags trips without an uploaded bilty so nothing leaks into next month's billing. Goal: stay at zero.</p>
+          <p class="text-sm text-navy-900/65 leading-relaxed">Flags trips without an uploaded bilty so nothing leaks into next month's billing. Goal: stay at zero.</p>
         </article>
 
-        <article class="card rounded-2xl p-6">
+        <article class="card-light rounded-2xl p-6">
           <div class="flex items-center gap-3 mb-3">
-            <div class="w-9 h-9 rounded-lg bg-brand-400/15 text-brand-300 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div>
-            <h3 class="font-semibold">Driver Upload Portal</h3>
+            <div class="w-9 h-9 rounded-lg bg-sky-500/10 text-sky-600 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div>
+            <h3 class="font-bold text-navy-900">Driver Upload Portal</h3>
           </div>
-          <p class="text-sm text-slate-400 leading-relaxed">Drivers upload PODs/bilties from a phone — no admin login. Documents land in the right trip instantly.</p>
+          <p class="text-sm text-navy-900/65 leading-relaxed">Drivers upload PODs/bilties from a phone — no admin login. Documents land in the right trip instantly.</p>
         </article>
 
-        <article class="card rounded-2xl p-6">
+        <article class="card-light rounded-2xl p-6">
           <div class="flex items-center gap-3 mb-3">
-            <div class="w-9 h-9 rounded-lg bg-brand-400/15 text-brand-300 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 14 4-4 4 4 5-5"/></svg></div>
-            <h3 class="font-semibold">Reports &amp; Analytics</h3>
+            <div class="w-9 h-9 rounded-lg bg-sky-500/10 text-sky-600 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 14 4-4 4 4 5-5"/></svg></div>
+            <h3 class="font-bold text-navy-900">Reports &amp; Analytics</h3>
           </div>
-          <p class="text-sm text-slate-400 leading-relaxed">Freight totals, expense breakdowns, vendor-wise summaries. Today, this week, this month — built-in date ranges.</p>
+          <p class="text-sm text-navy-900/65 leading-relaxed">Freight totals, expense breakdowns, vendor-wise summaries. Today, this week, this month — built-in date ranges.</p>
         </article>
 
-        <article class="card rounded-2xl p-6">
+        <article class="card-light rounded-2xl p-6">
           <div class="flex items-center gap-3 mb-3">
-            <div class="w-9 h-9 rounded-lg bg-brand-400/15 text-brand-300 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></div>
-            <h3 class="font-semibold">Notifications (ntfy)</h3>
+            <div class="w-9 h-9 rounded-lg bg-sky-500/10 text-sky-600 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></div>
+            <h3 class="font-bold text-navy-900">Notifications (ntfy)</h3>
           </div>
-          <p class="text-sm text-slate-400 leading-relaxed">Admin / manager broadcasts to staff or drivers. Auto-pings on new invoice, trip, bilty, vendor.</p>
+          <p class="text-sm text-navy-900/65 leading-relaxed">Admin / manager broadcasts to staff or drivers. Auto-pings on new invoice, trip, bilty, vendor.</p>
         </article>
 
-        <article class="card rounded-2xl p-6">
+        <article class="card-light rounded-2xl p-6">
           <div class="flex items-center gap-3 mb-3">
-            <div class="w-9 h-9 rounded-lg bg-brand-400/15 text-brand-300 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><path d="m16 11 2 2 4-4"/></svg></div>
-            <h3 class="font-semibold">Role-Based Access</h3>
+            <div class="w-9 h-9 rounded-lg bg-sky-500/10 text-sky-600 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><path d="m16 11 2 2 4-4"/></svg></div>
+            <h3 class="font-bold text-navy-900">Role-Based Access</h3>
           </div>
-          <p class="text-sm text-slate-400 leading-relaxed">Admin · Manager · Staff (per-module) · Driver · Super Admin. Staff only sees what's theirs.</p>
+          <p class="text-sm text-navy-900/65 leading-relaxed">Admin · Manager · Staff (per-module) · Driver · Super Admin. Staff only sees what's theirs.</p>
         </article>
 
-        <article class="card rounded-2xl p-6">
+        <article class="card-light rounded-2xl p-6">
           <div class="flex items-center gap-3 mb-3">
-            <div class="w-9 h-9 rounded-lg bg-brand-400/15 text-brand-300 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9"/><path d="M21 3v6h-6"/></svg></div>
-            <h3 class="font-semibold">Live Multi-User Sync</h3>
+            <div class="w-9 h-9 rounded-lg bg-sky-500/10 text-sky-600 flex items-center justify-center"><svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9"/><path d="M21 3v6h-6"/></svg></div>
+            <h3 class="font-bold text-navy-900">Live Multi-User Sync</h3>
           </div>
-          <p class="text-sm text-slate-400 leading-relaxed">Every change shows everywhere instantly. Two staff entering trips? Both see each other live. No refresh.</p>
+          <p class="text-sm text-navy-900/65 leading-relaxed">Every change shows everywhere instantly. Two staff entering trips? Both see each other live. No refresh.</p>
         </article>
       </div>
     </div>
@@ -354,37 +364,36 @@
   <!-- =================================================================== -->
   <!-- USE CASES                                                            -->
   <!-- =================================================================== -->
-  <section id="usecases" class="relative py-24 border-t border-slate-800/60">
-    <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-400/30 to-transparent"></div>
+  <section id="usecases" class="relative py-24 bg-navy-50/30 border-y border-navy-900/5">
     <div class="max-w-7xl mx-auto px-6">
       <div class="max-w-3xl mb-14">
-        <div class="text-[11px] uppercase tracking-[0.2em] text-brand-300 font-bold mb-4">How teams actually use it</div>
-        <h2 class="font-display text-4xl md:text-5xl font-black leading-tight">From the dispatch desk to the <span class="grad-text">owner's phone.</span></h2>
+        <div class="text-[11px] uppercase tracking-[0.2em] text-sky-600 font-bold mb-4">How teams actually use it</div>
+        <h2 class="font-display text-4xl md:text-5xl font-black leading-tight text-navy-900">From the dispatch desk to the <span class="grad-text">owner's phone.</span></h2>
       </div>
 
       <div class="grid md:grid-cols-2 gap-5">
-        <article class="card rounded-2xl p-7">
-          <div class="text-[11px] font-bold uppercase tracking-[0.2em] text-brand-300 mb-3">Month-end billing</div>
-          <h3 class="font-display text-2xl font-bold mb-3">A day of invoicing becomes a minute.</h3>
-          <p class="text-slate-400 leading-relaxed text-sm">"Generate invoice for Sharp Ferro Alloys, May 2026" → tax invoice + weight annexure built from the month's trips, stamped, ready to send. No copy-pasting from Tally, no double entry.</p>
+        <article class="card-light rounded-2xl p-7">
+          <div class="text-[11px] font-bold uppercase tracking-[0.2em] text-sky-600 mb-3">Month-end billing</div>
+          <h3 class="font-display text-2xl font-bold mb-3 text-navy-900">A day of invoicing becomes a minute.</h3>
+          <p class="text-navy-900/65 leading-relaxed text-sm">"Generate invoice for Sharp Ferro Alloys, May 2026" → tax invoice + weight annexure built from the month's trips, stamped, ready to send. No copy-pasting from Tally, no double entry.</p>
         </article>
 
-        <article class="card rounded-2xl p-7">
-          <div class="text-[11px] font-bold uppercase tracking-[0.2em] text-brand-300 mb-3">Daily dispatch</div>
-          <h3 class="font-display text-2xl font-bold mb-3">Trucks leave, the screen knows.</h3>
-          <p class="text-slate-400 leading-relaxed text-sm">Dispatcher logs trips as vehicles depart; staff updates as bilties arrive; the Missing Bilty Tracker stays at zero by Friday. Nothing slips into next month's reconciliation.</p>
+        <article class="card-light rounded-2xl p-7">
+          <div class="text-[11px] font-bold uppercase tracking-[0.2em] text-sky-600 mb-3">Daily dispatch</div>
+          <h3 class="font-display text-2xl font-bold mb-3 text-navy-900">Trucks leave, the screen knows.</h3>
+          <p class="text-navy-900/65 leading-relaxed text-sm">Dispatcher logs trips as vehicles depart; staff updates as bilties arrive; the Missing Bilty Tracker stays at zero by Friday. Nothing slips into next month's reconciliation.</p>
         </article>
 
-        <article class="card rounded-2xl p-7">
-          <div class="text-[11px] font-bold uppercase tracking-[0.2em] text-brand-300 mb-3">Driver docs on the road</div>
-          <h3 class="font-display text-2xl font-bold mb-3">POD photo → right trip, instantly.</h3>
-          <p class="text-slate-400 leading-relaxed text-sm">Driver opens the driver portal, snaps the bilty or POD, picks the trip. No login admin, no WhatsApp scroll, no "which group was that in?"</p>
+        <article class="card-light rounded-2xl p-7">
+          <div class="text-[11px] font-bold uppercase tracking-[0.2em] text-sky-600 mb-3">Driver docs on the road</div>
+          <h3 class="font-display text-2xl font-bold mb-3 text-navy-900">POD photo → right trip, instantly.</h3>
+          <p class="text-navy-900/65 leading-relaxed text-sm">Driver opens the driver portal, snaps the bilty or POD, picks the trip. No login admin, no WhatsApp scroll, no "which group was that in?"</p>
         </article>
 
-        <article class="card rounded-2xl p-7">
-          <div class="text-[11px] font-bold uppercase tracking-[0.2em] text-brand-300 mb-3">Payment chasing</div>
-          <h3 class="font-display text-2xl font-bold mb-3">Owner opens one tab. Sees who owes what.</h3>
-          <p class="text-slate-400 leading-relaxed text-sm">Billing Reconciliation shows vendor-wise billed vs paid, invoice-aware. The follow-up list writes itself.</p>
+        <article class="card-light rounded-2xl p-7">
+          <div class="text-[11px] font-bold uppercase tracking-[0.2em] text-sky-600 mb-3">Payment chasing</div>
+          <h3 class="font-display text-2xl font-bold mb-3 text-navy-900">Owner opens one tab. Sees who owes what.</h3>
+          <p class="text-navy-900/65 leading-relaxed text-sm">Billing Reconciliation shows vendor-wise billed vs paid, invoice-aware. The follow-up list writes itself.</p>
         </article>
       </div>
     </div>
@@ -393,24 +402,24 @@
   <!-- =================================================================== -->
   <!-- DIFFERENTIATION                                                      -->
   <!-- =================================================================== -->
-  <section id="different" class="relative py-24 border-t border-slate-800/60">
+  <section id="different" class="relative py-24">
     <div class="max-w-7xl mx-auto px-6">
       <div class="max-w-3xl mb-14">
-        <div class="text-[11px] uppercase tracking-[0.2em] text-brand-300 font-bold mb-4">Why TraxnCargo</div>
-        <h2 class="font-display text-4xl md:text-5xl font-black leading-tight">Not a global TMS forced into India. <span class="grad-text">Built here, for here.</span></h2>
-        <p class="mt-4 text-slate-400 text-lg max-w-2xl">Tally is for the accountant. WhatsApp is for the chat. Excel is for the audit. None of them know what a bilty is. TraxnCargo does.</p>
+        <div class="text-[11px] uppercase tracking-[0.2em] text-sky-600 font-bold mb-4">Why TraxnCargo</div>
+        <h2 class="font-display text-4xl md:text-5xl font-black leading-tight text-navy-900">Not a global TMS forced into India. <span class="grad-text">Built here, for here.</span></h2>
+        <p class="mt-4 text-navy-900/65 text-lg max-w-2xl">Tally is for the accountant. WhatsApp is for the chat. Excel is for the audit. None of them know what a bilty is. TraxnCargo does.</p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-4">
-        <div class="card rounded-xl p-5"><div class="num text-brand-400 font-display font-black text-2xl mb-2">01</div><h4 class="font-semibold mb-1.5">Bilty-first, GST-native</h4><p class="text-sm text-slate-400">Consignment notes, tax invoices, weight annexures — designed for how Indian transporters bill, not retrofitted.</p></div>
-        <div class="card rounded-xl p-5"><div class="num text-brand-400 font-display font-black text-2xl mb-2">02</div><h4 class="font-semibold mb-1.5">Live multi-user</h4><p class="text-sm text-slate-400">Concurrent edits across branches, live sync, no "send me the latest sheet." Stops the "two people, two versions" disaster.</p></div>
-        <div class="card rounded-xl p-5"><div class="num text-brand-400 font-display font-black text-2xl mb-2">03</div><h4 class="font-semibold mb-1.5">Your branding, every doc</h4><p class="text-sm text-slate-400">Upload letterhead, stamp, signature once. Every bilty and invoice carries them. Clients see your brand, not ours.</p></div>
-        <div class="card rounded-xl p-5"><div class="num text-brand-400 font-display font-black text-2xl mb-2">04</div><h4 class="font-semibold mb-1.5">One-click invoice from trips</h4><p class="text-sm text-slate-400">Month of trips → GST invoice + weight annexure in a single action. No Excel-to-Tally hand-off.</p></div>
-        <div class="card rounded-xl p-5"><div class="num text-brand-400 font-display font-black text-2xl mb-2">05</div><h4 class="font-semibold mb-1.5">Mobile-friendly</h4><p class="text-sm text-slate-400">Dispatcher, owner, driver — all work from a phone if needed. Mobile-first action buttons, big tap targets.</p></div>
-        <div class="card rounded-xl p-5"><div class="num text-brand-400 font-display font-black text-2xl mb-2">06</div><h4 class="font-semibold mb-1.5">Role-based modules</h4><p class="text-sm text-slate-400">Give a manager only dispatch, a billing clerk only invoices. Staff stays in their lane, super-admin stays out of your data.</p></div>
-        <div class="card rounded-xl p-5"><div class="num text-brand-400 font-display font-black text-2xl mb-2">07</div><h4 class="font-semibold mb-1.5">Multi-tenant SaaS</h4><p class="text-sm text-slate-400">Nothing to install. Per-company workspace, isolated. Onboarding to running in an afternoon.</p></div>
-        <div class="card rounded-xl p-5"><div class="num text-brand-400 font-display font-black text-2xl mb-2">08</div><h4 class="font-semibold mb-1.5">Built-in notifications</h4><p class="text-sm text-slate-400">Broadcast to drivers or staff via push notifications (ntfy). No WhatsApp groups, no message-blast tools.</p></div>
-        <div class="card rounded-xl p-5"><div class="num text-brand-400 font-display font-black text-2xl mb-2">09</div><h4 class="font-semibold mb-1.5">Clear subscription</h4><p class="text-sm text-slate-400">No enterprise sales cycle. Transparent monthly pricing. Dues overdue? Workspace pauses cleanly until cleared — fair to both sides.</p></div>
+        <div class="card-light rounded-xl p-5"><div class="num text-sky-500 font-display font-black text-2xl mb-2">01</div><h4 class="font-bold text-navy-900 mb-1.5">Bilty-first, GST-native</h4><p class="text-sm text-navy-900/65">Consignment notes, tax invoices, weight annexures — designed for how Indian transporters bill, not retrofitted.</p></div>
+        <div class="card-light rounded-xl p-5"><div class="num text-sky-500 font-display font-black text-2xl mb-2">02</div><h4 class="font-bold text-navy-900 mb-1.5">Live multi-user</h4><p class="text-sm text-navy-900/65">Concurrent edits across branches, live sync, no "send me the latest sheet." Stops the "two people, two versions" disaster.</p></div>
+        <div class="card-light rounded-xl p-5"><div class="num text-sky-500 font-display font-black text-2xl mb-2">03</div><h4 class="font-bold text-navy-900 mb-1.5">Your branding, every doc</h4><p class="text-sm text-navy-900/65">Upload letterhead, stamp, signature once. Every bilty and invoice carries them. Clients see your brand, not ours.</p></div>
+        <div class="card-light rounded-xl p-5"><div class="num text-sky-500 font-display font-black text-2xl mb-2">04</div><h4 class="font-bold text-navy-900 mb-1.5">One-click invoice from trips</h4><p class="text-sm text-navy-900/65">Month of trips → GST invoice + weight annexure in a single action. No Excel-to-Tally hand-off.</p></div>
+        <div class="card-light rounded-xl p-5"><div class="num text-sky-500 font-display font-black text-2xl mb-2">05</div><h4 class="font-bold text-navy-900 mb-1.5">Mobile-friendly</h4><p class="text-sm text-navy-900/65">Dispatcher, owner, driver — all work from a phone if needed. Mobile-first action buttons, big tap targets.</p></div>
+        <div class="card-light rounded-xl p-5"><div class="num text-sky-500 font-display font-black text-2xl mb-2">06</div><h4 class="font-bold text-navy-900 mb-1.5">Role-based modules</h4><p class="text-sm text-navy-900/65">Give a manager only dispatch, a billing clerk only invoices. Staff stays in their lane, super-admin stays out of your data.</p></div>
+        <div class="card-light rounded-xl p-5"><div class="num text-sky-500 font-display font-black text-2xl mb-2">07</div><h4 class="font-bold text-navy-900 mb-1.5">Multi-tenant SaaS</h4><p class="text-sm text-navy-900/65">Nothing to install. Per-company workspace, isolated. Onboarding to running in an afternoon.</p></div>
+        <div class="card-light rounded-xl p-5"><div class="num text-sky-500 font-display font-black text-2xl mb-2">08</div><h4 class="font-bold text-navy-900 mb-1.5">Built-in notifications</h4><p class="text-sm text-navy-900/65">Broadcast to drivers or staff via push notifications (ntfy). No WhatsApp groups, no message-blast tools.</p></div>
+        <div class="card-light rounded-xl p-5"><div class="num text-sky-500 font-display font-black text-2xl mb-2">09</div><h4 class="font-bold text-navy-900 mb-1.5">Clear subscription</h4><p class="text-sm text-navy-900/65">No enterprise sales cycle. Transparent monthly pricing. Dues overdue? Workspace pauses cleanly until cleared — fair to both sides.</p></div>
       </div>
     </div>
   </section>
@@ -418,42 +427,40 @@
   <!-- =================================================================== -->
   <!-- CTA                                                                  -->
   <!-- =================================================================== -->
-  <section id="contact" class="relative py-24 border-t border-slate-800/60 overflow-hidden">
-    <div class="absolute inset-0 mesh pointer-events-none"></div>
+  <section id="contact" class="relative py-24 overflow-hidden bg-gradient-to-b from-white via-navy-50/40 to-white border-t border-navy-900/5">
+    <div class="absolute inset-0 grid-bg opacity-50 pointer-events-none"></div>
     <div class="relative max-w-4xl mx-auto px-6 text-center">
-      <h2 class="font-display text-4xl md:text-6xl font-black leading-[1.05] tracking-tight">Stop emailing the latest sheet.<br/><span class="grad-text">Run logistics on one live screen.</span></h2>
-      <p class="mt-6 text-slate-400 text-lg max-w-2xl mx-auto">Open the app, sign in, and start logging trips. If you want a walkthrough first, drop us a line — we'll set you up.</p>
+      <h2 class="font-display text-4xl md:text-6xl font-black leading-[1.05] tracking-tight text-navy-900">Stop emailing the latest sheet.<br/><span class="grad-text">Run logistics on one live screen.</span></h2>
+      <p class="mt-6 text-navy-900/65 text-lg max-w-2xl mx-auto">Open the app, sign in, and start logging trips. If you want a walkthrough first, drop us a line — we'll set you up.</p>
       <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
-        <a href="https://app.traxn.in" class="inline-flex items-center gap-2 bg-brand-400 text-slate-950 hover:bg-brand-300 transition px-7 py-4 rounded-xl font-bold shadow-glow">
+        <a href="https://app.traxn.in" class="inline-flex items-center gap-2 bg-sky-500 text-white hover:bg-sky-600 transition px-7 py-4 rounded-xl font-bold shadow-cta">
           Open the app
           <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
         </a>
-        <a href="mailto:hello@traxn.in?subject=TraxnCargo%20demo" class="inline-flex items-center gap-2 pill bg-slate-900/60 hover:bg-slate-800/60 transition px-7 py-4 rounded-xl font-semibold">
+        <a href="mailto:hello@traxn.in?subject=TraxnCargo%20demo" class="inline-flex items-center gap-2 bg-white border border-navy-900/15 hover:border-navy-900/30 transition px-7 py-4 rounded-xl font-semibold text-navy-900">
           Book a demo
         </a>
       </div>
-      <p class="mt-8 text-sm text-slate-500">Mail us at <a href="mailto:hello@traxn.in" class="text-brand-300 hover:text-brand-200 transition">hello@traxn.in</a></p>
+      <p class="mt-8 text-sm text-navy-900/55">Mail us at <a href="mailto:hello@traxn.in" class="text-sky-600 hover:text-sky-700 transition font-semibold">hello@traxn.in</a></p>
     </div>
   </section>
 
   <!-- =================================================================== -->
   <!-- FOOTER                                                               -->
   <!-- =================================================================== -->
-  <footer class="border-t border-slate-800/60 py-10 bg-slate-950">
-    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-500">
-      <div class="flex items-center gap-2.5">
-        <div class="w-7 h-7 rounded-md bg-gradient-to-br from-brand-400 to-violet-500 flex items-center justify-center">
-          <svg viewBox="0 0 24 24" class="w-3.5 h-3.5 text-slate-950" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h13l5 5v4h-2"/><path d="M16 18H8"/><path d="M5 18H3v-4l3-7h10"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
-        </div>
-        <span class="font-display font-extrabold text-slate-300">Traxn<span class="text-brand-400">Cargo</span></span>
-        <span class="text-slate-700">·</span>
+  <footer class="border-t border-navy-900/5 py-10 bg-white">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-navy-900/55">
+      <div class="flex items-center gap-2">
+        <img src="./assets/logo.jpeg" alt="Traxn" class="h-6 w-auto logo-mark" width="120" height="38">
+        <span class="font-display font-extrabold text-sky-500 text-sm -ml-1">Cargo</span>
+        <span class="text-navy-900/20 mx-2">·</span>
         <span>by Infocomiva</span>
       </div>
-      <div class="flex items-center gap-6">
-        <a href="#modules" class="hover:text-slate-300 transition">Modules</a>
-        <a href="#different" class="hover:text-slate-300 transition">Why us</a>
-        <a href="https://app.traxn.in" class="hover:text-slate-300 transition">Sign in</a>
-        <a href="mailto:hello@traxn.in" class="hover:text-slate-300 transition">Contact</a>
+      <div class="flex items-center gap-6 font-medium">
+        <a href="#modules" class="hover:text-navy-900 transition">Modules</a>
+        <a href="#different" class="hover:text-navy-900 transition">Why us</a>
+        <a href="https://app.traxn.in" class="hover:text-navy-900 transition">Sign in</a>
+        <a href="mailto:hello@traxn.in" class="hover:text-navy-900 transition">Contact</a>
       </div>
       <div>© <span id="y"></span> Infocomiva. All rights reserved.</div>
     </div>
