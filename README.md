@@ -1,21 +1,33 @@
-# TraxnCargo — Landing Page
+# Traxn — Landing site
 
-The marketing landing page for **TraxnCargo** (the app at [app.traxn.in](https://app.traxn.in)),
-served at [traxn.in](https://traxn.in).
+Public marketing site at [traxn.in](https://traxn.in) for the Traxn product
+family. The **TraxnCargo** product landing lives at
+[traxn.in/cargo](https://traxn.in/cargo).
+
+## Routes
+| URL | File | Purpose |
+| --- | --- | --- |
+| `/` | `index.html` | Tiny landing shell — redirects to `/cargo`. Reserved for a future master Traxn page. |
+| `/cargo` | `cargo/index.html` | **TraxnCargo** product landing (hero, modules, "see inside" mockups, use cases, differentiation, demo modal). |
+| `/assets/*` | `assets/` | Shared static assets — logo, favicon. |
 
 ## Stack
-Single self-contained static `index.html` with Tailwind via CDN. No build step,
-no dependencies. Drop the file on any static host.
+Single-file static HTML per route, Tailwind via CDN. No build step. Modal
+submits straight to Firestore (`cargologic-saas → /leads`) via the Firebase
+JS modular CDN; Super Admin sees new leads live.
 
-## Deploy to Vercel
-1. **vercel.com → Add New → Project → Import** `avi-development/traxncargo-landing`.
-2. Framework preset: **Other** (Vercel auto-detects static).
-3. Deploy.
-4. In **Project Settings → Domains**, add `traxn.in` and `www.traxn.in`. Because
-   your DNS lives at Vercel they auto-configure.
+## Deploy
+Vercel auto-deploys `main`. Domains `traxn.in` + `www.traxn.in` attach to
+this project; root requests redirect to `/cargo`.
+
+## Preview locally
+```sh
+python3 -m http.server -d . 8000
+# /          -> redirect to /cargo
+# /cargo     -> product landing
+```
 
 ## Edit
-Open `index.html`. Sections are commented:
-- NAV · HERO · TRUST STRIP · MODULES · USE CASES · DIFFERENTIATION · CTA · FOOTER
-
-To preview locally: `python3 -m http.server 8000` and open `http://localhost:8000`.
+- TraxnCargo product page: `cargo/index.html` — sections commented
+  (NAV · HERO · TRUST STRIP · MODULES · SEE INSIDE · USE CASES · DIFFERENTIATION · CTA · FOOTER).
+- Logo / favicon: `assets/`.
