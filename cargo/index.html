@@ -60,6 +60,10 @@
     }
   </script>
   <style>
+    /* Bulletproof horizontal-overflow guard. body class alone isn't always
+       enough — if html itself can scroll, anything inside leaks. Pin BOTH
+       to viewport width so nothing inside can ever push the page wider. */
+    html, body { overflow-x: hidden; max-width: 100vw; }
     body { font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
     .font-display { font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif; letter-spacing: -0.025em; }
     .grad-text {
