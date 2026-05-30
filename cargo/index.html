@@ -110,7 +110,7 @@
     }
   </style>
 </head>
-<body class="bg-white text-navy-900 selection:bg-sky-500/20 selection:text-navy-900">
+<body class="bg-white text-navy-900 selection:bg-sky-500/20 selection:text-navy-900 overflow-x-hidden">
 
   <!-- =================================================================== -->
   <!-- NAV                                                                  -->
@@ -150,7 +150,7 @@
           Logistics OS · Built for India
         </div>
 
-        <h1 class="font-display text-5xl md:text-7xl font-black leading-[0.95] tracking-tight text-navy-900">
+        <h1 class="font-display text-4xl sm:text-5xl md:text-7xl font-black leading-[0.95] tracking-tight text-navy-900 break-words">
           Every trip. Every bilty.<br/>
           Every rupee.
           <span class="grad-text">One screen.</span>
@@ -274,7 +274,7 @@
     <div class="max-w-7xl mx-auto px-6">
       <div class="max-w-3xl mb-14">
         <div class="text-[11px] uppercase tracking-[0.2em] text-sky-600 font-bold mb-4">The modules</div>
-        <h2 class="font-display text-4xl md:text-5xl font-black leading-tight text-navy-900">Thirteen tools, <span class="grad-text">one workspace.</span></h2>
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-black leading-tight text-navy-900">Thirteen tools, <span class="grad-text">one workspace.</span></h2>
         <p class="mt-4 text-navy-900/65 text-lg max-w-2xl">Each module is built around how road-transport actually runs in India — bilties, ferro-alloy clients, GST, weight annexures, missing-doc chases. Pick what you use, ignore what you don't.</p>
       </div>
 
@@ -397,7 +397,7 @@
     <div class="relative max-w-7xl mx-auto px-6">
       <div class="max-w-3xl mb-16">
         <div class="text-[11px] uppercase tracking-[0.2em] text-sky-600 font-bold mb-4">See inside the app</div>
-        <h2 class="font-display text-4xl md:text-5xl font-black leading-tight text-navy-900">What every screen <span class="grad-text">actually looks like.</span></h2>
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-black leading-tight text-navy-900">What every screen <span class="grad-text">actually looks like.</span></h2>
         <p class="mt-4 text-navy-900/65 text-lg max-w-2xl">Real outputs from the running app — invoices, bilties, the driver mobile flow. Your letterhead, your stamp, your GSTIN — every doc carries them.</p>
       </div>
 
@@ -406,7 +406,7 @@
         <!-- ROW 1: TAX INVOICE  -->
         <div class="grid lg:grid-cols-12 gap-10 items-center">
           <div class="lg:col-span-7 order-2 lg:order-1">
-            <div class="card-light rounded-2xl p-6 shadow-ring">
+            <div class="card-light rounded-2xl p-4 sm:p-6 shadow-ring overflow-x-auto scrollbar-none min-w-0">
               <!-- PDF chrome -->
               <div class="flex items-center justify-between border-b border-navy-900/10 pb-3 mb-5">
                 <div class="flex items-center gap-1.5 text-xs font-mono text-navy-900/40">
@@ -499,7 +499,7 @@
           </div>
           <div class="lg:col-span-5 order-1 lg:order-2">
             <div class="text-[11px] uppercase tracking-[0.2em] text-sky-600 font-bold mb-3">Invoice Generation</div>
-            <h3 class="font-display text-3xl md:text-4xl font-black leading-tight text-navy-900 mb-4">One month of trips → one GST tax invoice.</h3>
+            <h3 class="font-display text-2xl sm:text-3xl md:text-4xl font-black leading-tight text-navy-900 mb-4">One month of trips → one GST tax invoice.</h3>
             <p class="text-navy-900/65 leading-relaxed">Pick a vendor + a month. The app stitches every trip into a single tax invoice with the description <em>"Transportation Charges for {goods} from {consignor} to {consignee}"</em>, totals the freight, applies your CGST/SGST, prints your bank details, and stamps it. Annexure-A with the trip-by-trip breakdown is attached automatically.</p>
             <ul class="mt-5 space-y-2 text-sm text-navy-900/70">
               <li class="flex items-start gap-2"><svg viewBox="0 0 24 24" class="w-4 h-4 mt-0.5 text-sky-500 shrink-0" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Your GSTIN, PAN, bank details — once in Settings, every invoice forever.</span></li>
@@ -513,7 +513,7 @@
         <div class="grid lg:grid-cols-12 gap-10 items-center">
           <div class="lg:col-span-5">
             <div class="text-[11px] uppercase tracking-[0.2em] text-sky-600 font-bold mb-3">Annexure (Weight summary)</div>
-            <h3 class="font-display text-3xl md:text-4xl font-black leading-tight text-navy-900 mb-4">Every trip, every weight, every rupee — auto-tallied.</h3>
+            <h3 class="font-display text-2xl sm:text-3xl md:text-4xl font-black leading-tight text-navy-900 mb-4">Every trip, every weight, every rupee — auto-tallied.</h3>
             <p class="text-navy-900/65 leading-relaxed">Gross weight at loading. Net weight at the gate. Received weight at the plant. The annexure handles the math (Net = Gross − Received, Freight = Rate × Received) and totals it. No more "send me the weighbridge slips" emails.</p>
             <div class="mt-6 grid grid-cols-3 gap-3 text-center">
               <div class="card-light rounded-xl p-3">
@@ -531,7 +531,7 @@
             </div>
           </div>
           <div class="lg:col-span-7">
-            <div class="card-light rounded-2xl p-6 shadow-ring">
+            <div class="card-light rounded-2xl p-4 sm:p-6 shadow-ring overflow-x-auto scrollbar-none min-w-0">
               <div class="flex items-center justify-between border-b border-navy-900/10 pb-3 mb-4">
                 <div class="flex items-center gap-1.5 text-xs font-mono text-navy-900/40">
                   <span class="h-2.5 w-2.5 rounded-full bg-rose-400"></span>
@@ -630,7 +630,7 @@
           </div>
           <div class="lg:col-span-7">
             <div class="text-[11px] uppercase tracking-[0.2em] text-sky-600 font-bold mb-3">Driver Upload Portal</div>
-            <h3 class="font-display text-3xl md:text-4xl font-black leading-tight text-navy-900 mb-4">No app install. No login admin. Just a link.</h3>
+            <h3 class="font-display text-2xl sm:text-3xl md:text-4xl font-black leading-tight text-navy-900 mb-4">No app install. No login admin. Just a link.</h3>
             <p class="text-navy-900/65 leading-relaxed">Send your drivers one URL — <span class="font-mono text-sky-700">app.traxn.in/driver-upload</span>. They pick their trip, snap the bilty or POD with their phone camera, and it lands inside the right trip instantly. The dispatcher sees it appear in real time. No WhatsApp groups, no "send me again," no missed paperwork at the end of the month.</p>
             <div class="mt-6 grid sm:grid-cols-2 gap-3 text-sm">
               <div class="card-light rounded-xl p-4">
@@ -656,7 +656,7 @@
     <div class="max-w-7xl mx-auto px-6">
       <div class="max-w-3xl mb-14">
         <div class="text-[11px] uppercase tracking-[0.2em] text-sky-600 font-bold mb-4">How teams actually use it</div>
-        <h2 class="font-display text-4xl md:text-5xl font-black leading-tight text-navy-900">From the dispatch desk to the <span class="grad-text">owner's phone.</span></h2>
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-black leading-tight text-navy-900">From the dispatch desk to the <span class="grad-text">owner's phone.</span></h2>
       </div>
 
       <div class="grid md:grid-cols-2 gap-5">
@@ -694,7 +694,7 @@
     <div class="max-w-7xl mx-auto px-6">
       <div class="max-w-3xl mb-14">
         <div class="text-[11px] uppercase tracking-[0.2em] text-sky-600 font-bold mb-4">Why TraxnCargo</div>
-        <h2 class="font-display text-4xl md:text-5xl font-black leading-tight text-navy-900">Not a global TMS forced into India. <span class="grad-text">Built here, for here.</span></h2>
+        <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-black leading-tight text-navy-900">Not a global TMS forced into India. <span class="grad-text">Built here, for here.</span></h2>
         <p class="mt-4 text-navy-900/65 text-lg max-w-2xl">Tally is for the accountant. WhatsApp is for the chat. Excel is for the audit. None of them know what a bilty is. TraxnCargo does.</p>
       </div>
 
@@ -718,7 +718,7 @@
   <section id="contact" class="relative py-24 overflow-hidden bg-gradient-to-b from-white via-navy-50/40 to-white border-t border-navy-900/5">
     <div class="absolute inset-0 grid-bg opacity-50 pointer-events-none"></div>
     <div class="relative max-w-4xl mx-auto px-6 text-center">
-      <h2 class="font-display text-4xl md:text-6xl font-black leading-[1.05] tracking-tight text-navy-900">Stop emailing the latest sheet.<br/><span class="grad-text">Run logistics on one live screen.</span></h2>
+      <h2 class="font-display text-3xl sm:text-4xl md:text-6xl font-black leading-[1.05] tracking-tight text-navy-900 break-words">Stop emailing the latest sheet.<br/><span class="grad-text">Run logistics on one live screen.</span></h2>
       <p class="mt-6 text-navy-900/65 text-lg max-w-2xl mx-auto">Open the app, sign in, and start logging trips. If you want a walkthrough first, drop us a line — we'll set you up.</p>
       <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
         <a href="https://app.traxn.in" class="inline-flex items-center gap-2 bg-sky-500 text-white hover:bg-sky-600 transition px-7 py-4 rounded-xl font-bold shadow-cta">
