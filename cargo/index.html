@@ -272,11 +272,60 @@
   </section>
 
   <!-- =================================================================== -->
-  <!-- REAL APP SCREENSHOT — mobile only. Desktop visitors see the trip    -->
-  <!-- table mockup in the hero, so this section only adds value on phones -->
-  <!-- (where the hero mockup is hidden).                                   -->
+  <!-- INDUSTRY IMAGERY — copyright-free Unsplash photos (no attribution    -->
+  <!-- required, free for commercial use). Visual context for the kind of  -->
+  <!-- business the product serves: trucking, cargo, heavy industry.       -->
   <!-- =================================================================== -->
-  <section class="sm:hidden relative py-12 bg-gradient-to-b from-navy-50/30 to-white">
+  <section class="relative py-12 sm:py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
+        <div class="text-[11px] uppercase tracking-[0.2em] text-sky-600 font-bold mb-3">Built for</div>
+        <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-black leading-tight text-navy-900 break-words">
+          India's road-logistics <span class="grad-text">backbone.</span>
+        </h2>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-5">
+        <figure class="relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden group shadow-soft">
+          <img
+            src="https://images.unsplash.com/photo-1601584115197-04ecc0da31e1?w=800&auto=format&fit=crop&q=80"
+            alt="Heavy-duty trucks on an Indian highway"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            loading="lazy" width="800" height="600"
+          />
+          <figcaption class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-navy-900/80 to-transparent text-white text-[10px] sm:text-xs font-bold uppercase tracking-[0.18em] p-3 sm:p-4">
+            On the road
+          </figcaption>
+        </figure>
+        <figure class="relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden group shadow-soft">
+          <img
+            src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=800&auto=format&fit=crop&q=80"
+            alt="Warehouse with stacked freight pallets"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            loading="lazy" width="800" height="600"
+          />
+          <figcaption class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-navy-900/80 to-transparent text-white text-[10px] sm:text-xs font-bold uppercase tracking-[0.18em] p-3 sm:p-4">
+            At the warehouse
+          </figcaption>
+        </figure>
+        <figure class="relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden group shadow-soft col-span-2 sm:col-span-1">
+          <img
+            src="https://images.unsplash.com/photo-1565891741441-64926e441838?w=800&auto=format&fit=crop&q=80"
+            alt="Industrial plant — steel and heavy manufacturing"
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            loading="lazy" width="800" height="600"
+          />
+          <figcaption class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-navy-900/80 to-transparent text-white text-[10px] sm:text-xs font-bold uppercase tracking-[0.18em] p-3 sm:p-4">
+            For heavy industry
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================================== -->
+  <!-- REAL APP SCREENSHOT — horizontal carousel showing login + 3 mockups -->
+  <!-- =================================================================== -->
+  <section class="relative py-12 sm:py-16 bg-gradient-to-b from-navy-50/30 to-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
       <div class="text-[11px] uppercase tracking-[0.2em] text-sky-600 font-bold mb-3">The real product</div>
       <h2 class="font-display text-2xl sm:text-3xl md:text-5xl font-black leading-tight text-navy-900 break-words mb-3">
@@ -285,7 +334,8 @@
       <p class="text-navy-900/65 max-w-xl mx-auto text-sm sm:text-base mb-8 sm:mb-10">
         Sign in at <span class="font-mono text-sky-700">app.traxn.in</span> and you're inside this screen.
       </p>
-      <div class="relative inline-block w-full max-w-4xl">
+      <div id="mockups-carousel" class="flex overflow-x-auto snap-x snap-mandatory gap-4 sm:gap-6 -mx-4 sm:-mx-6 px-4 sm:px-6 pb-4 scrollbar-none text-left">
+      <div class="relative snap-start shrink-0 w-[88%] sm:w-[78%] md:w-[68%] lg:w-[58%]">
         <div class="bg-navy-900 rounded-t-xl sm:rounded-t-2xl p-2 sm:p-3 flex items-center gap-1.5 sm:gap-2">
           <span class="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-rose-400"></span>
           <span class="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-amber-400"></span>
@@ -300,6 +350,126 @@
           loading="lazy"
         />
       </div>
+
+      <!-- Expense Tracking screenshot, same browser-frame style as login -->
+      <div class="relative snap-start shrink-0 w-[88%] sm:w-[78%] md:w-[68%] lg:w-[58%]">
+        <div class="bg-navy-900 rounded-t-xl sm:rounded-t-2xl p-2 sm:p-3 flex items-center gap-1.5 sm:gap-2">
+          <span class="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-rose-400"></span>
+          <span class="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-amber-400"></span>
+          <span class="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-emerald-400"></span>
+          <span class="ml-3 sm:ml-4 text-[10px] sm:text-xs font-mono text-white/60">app.traxn.in/expenses</span>
+        </div>
+        <div class="bg-white rounded-b-xl sm:rounded-b-2xl shadow-ring border border-t-0 border-navy-900/10 p-4 sm:p-6 text-left">
+          <div class="text-[10px] font-bold uppercase tracking-wider text-navy-900/55 mb-3">Expense Tracking</div>
+          <div class="grid grid-cols-3 gap-2 mb-4">
+            <div class="rounded-lg border border-navy-900/8 p-2.5 bg-sky-50/50">
+              <div class="text-[9px] font-bold uppercase tracking-wider text-navy-900/50">Diesel</div>
+              <div class="text-sm font-display font-black text-navy-900 mt-1 num">₹XX,XXX</div>
+            </div>
+            <div class="rounded-lg border border-navy-900/8 p-2.5 bg-sky-50/50">
+              <div class="text-[9px] font-bold uppercase tracking-wider text-navy-900/50">Driver</div>
+              <div class="text-sm font-display font-black text-navy-900 mt-1 num">₹XX,XXX</div>
+            </div>
+            <div class="rounded-lg border border-navy-900/8 p-2.5 bg-sky-50/50">
+              <div class="text-[9px] font-bold uppercase tracking-wider text-navy-900/50">Other</div>
+              <div class="text-sm font-display font-black text-navy-900 mt-1 num">₹X</div>
+            </div>
+          </div>
+          <table class="w-full text-[11px]">
+            <thead>
+              <tr class="border-b border-navy-900/10 text-navy-900/55 uppercase text-[9px] tracking-wider">
+                <th class="text-left py-1.5 font-semibold">Trip</th>
+                <th class="text-right py-1.5 font-semibold">Diesel</th>
+                <th class="text-right py-1.5 font-semibold">Driver</th>
+                <th class="text-right py-1.5 font-semibold">Total</th>
+              </tr>
+            </thead>
+            <tbody class="text-navy-900/80">
+              <tr class="border-b border-navy-900/6"><td class="py-1.5">XXX-XXXX/XXXX</td><td class="text-right num">₹X,XXX</td><td class="text-right num">₹X,XXX</td><td class="text-right num font-bold text-rose-600">₹X,XXX</td></tr>
+              <tr class="border-b border-navy-900/6"><td class="py-1.5">XXX-XX/XXXX</td><td class="text-right num">₹X,XXX</td><td class="text-right num">₹X,XXX</td><td class="text-right num font-bold text-rose-600">₹X,XXX</td></tr>
+              <tr class="border-b border-navy-900/6"><td class="py-1.5">XXX-XX/XXXX</td><td class="text-right num">₹X,XXX</td><td class="text-right num">₹X,XXX</td><td class="text-right num font-bold text-rose-600">₹X,XXX</td></tr>
+              <tr><td class="py-1.5">XXX-XX/XXXX</td><td class="text-right num">₹X,XXX</td><td class="text-right num">₹X,XXX</td><td class="text-right num font-bold text-rose-600">₹X,XXX</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Billing Reconciliation screenshot, same browser-frame style -->
+      <div class="relative snap-start shrink-0 w-[88%] sm:w-[78%] md:w-[68%] lg:w-[58%]">
+        <div class="bg-navy-900 rounded-t-xl sm:rounded-t-2xl p-2 sm:p-3 flex items-center gap-1.5 sm:gap-2">
+          <span class="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-rose-400"></span>
+          <span class="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-amber-400"></span>
+          <span class="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-emerald-400"></span>
+          <span class="ml-3 sm:ml-4 text-[10px] sm:text-xs font-mono text-white/60">app.traxn.in/reports/reconciliation</span>
+        </div>
+        <div class="bg-white rounded-b-xl sm:rounded-b-2xl shadow-ring border border-t-0 border-navy-900/10 p-4 sm:p-6 text-left">
+          <div class="text-[10px] font-bold uppercase tracking-wider text-navy-900/55 mb-3">Billing Reconciliation</div>
+          <div class="grid grid-cols-3 gap-2 mb-4">
+            <div class="rounded-lg border border-emerald-200 p-2.5 bg-emerald-50/60 text-center">
+              <div class="text-[8px] font-bold uppercase tracking-wider text-emerald-700/70">Receivable</div>
+              <div class="text-sm font-display font-black text-emerald-700 mt-1 num">₹X.XXL</div>
+            </div>
+            <div class="rounded-lg border border-sky-200 p-2.5 bg-sky-50/60 text-center">
+              <div class="text-[8px] font-bold uppercase tracking-wider text-sky-700/70">Received</div>
+              <div class="text-sm font-display font-black text-sky-700 mt-1 num">₹X.XXL</div>
+            </div>
+            <div class="rounded-lg border border-rose-200 p-2.5 bg-rose-50/60 text-center">
+              <div class="text-[8px] font-bold uppercase tracking-wider text-rose-700/70">Balance</div>
+              <div class="text-sm font-display font-black text-rose-700 mt-1 num">₹X.XXL</div>
+            </div>
+          </div>
+          <div class="text-[11px] space-y-2">
+            <div class="flex items-center justify-between border-b border-navy-900/6 pb-2">
+              <span class="text-navy-900/80 font-medium">XXXXX FERRO LTD</span>
+              <span class="text-[8px] font-bold uppercase tracking-wider bg-amber-100 text-amber-700 px-2 py-0.5 rounded">Mismatch</span>
+            </div>
+            <div class="flex items-center justify-between border-b border-navy-900/6 pb-2">
+              <span class="text-navy-900/80 font-medium">XXXX STEEL LTD</span>
+              <span class="text-[8px] font-bold uppercase tracking-wider bg-rose-100 text-rose-700 px-2 py-0.5 rounded">Missing Bills</span>
+            </div>
+            <div class="flex items-center justify-between border-b border-navy-900/6 pb-2">
+              <span class="text-navy-900/80 font-medium">XXXXX INDUSTRIES</span>
+              <span class="text-[8px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded">Matched</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-navy-900/80 font-medium">XXXX ALLOYS LTD</span>
+              <span class="text-[8px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded">Matched</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reports & Analytics screenshot, same browser-frame style -->
+      <div class="relative snap-start shrink-0 w-[88%] sm:w-[78%] md:w-[68%] lg:w-[58%]">
+        <div class="bg-navy-900 rounded-t-xl sm:rounded-t-2xl p-2 sm:p-3 flex items-center gap-1.5 sm:gap-2">
+          <span class="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-rose-400"></span>
+          <span class="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-amber-400"></span>
+          <span class="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-emerald-400"></span>
+          <span class="ml-3 sm:ml-4 text-[10px] sm:text-xs font-mono text-white/60">app.traxn.in/reports</span>
+        </div>
+        <div class="bg-white rounded-b-xl sm:rounded-b-2xl shadow-ring border border-t-0 border-navy-900/10 p-4 sm:p-6 text-left">
+          <div class="text-[10px] font-bold uppercase tracking-wider text-navy-900/55 mb-3">Reports &amp; Analytics</div>
+          <div class="border border-navy-900/8 rounded-lg p-3 mb-3 bg-navy-50/30">
+            <div class="text-[9px] font-bold uppercase tracking-wider text-navy-900/50 mb-2">Financial Summary</div>
+            <div class="space-y-1.5 text-[11px]">
+              <div class="flex justify-between"><span class="text-navy-900/70">Total Freight Revenue</span><span class="font-bold text-navy-900 num">₹X,XXX</span></div>
+              <div class="flex justify-between"><span class="text-navy-900/70">Total Operational Expenses</span><span class="font-bold text-rose-600 num">₹XX,XXX</span></div>
+              <div class="flex justify-between border-t border-navy-900/8 pt-1.5"><span class="text-navy-900 font-bold">Estimated Net Profit</span><span class="font-bold text-sky-600 num">₹-X,XXX</span></div>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-2">
+            <div class="rounded-lg border border-navy-900/8 p-3 text-center">
+              <div class="text-[9px] font-bold uppercase tracking-wider text-navy-900/50">Total Trips</div>
+              <div class="text-xl font-display font-black text-navy-900 mt-1 num">XX</div>
+            </div>
+            <div class="rounded-lg border border-navy-900/8 p-3 text-center">
+              <div class="text-[9px] font-bold uppercase tracking-wider text-navy-900/50">Bilty Rate</div>
+              <div class="text-xl font-display font-black text-emerald-600 mt-1 num">XX%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div><!-- /#mockups-carousel -->
     </div>
   </section>
 
@@ -1155,6 +1325,47 @@
         c.addEventListener(ev, pauseAndResume, { passive: true });
       });
 
+      window.addEventListener('resize', start);
+      start();
+    })();
+  </script>
+
+  <!-- Auto-scroll the mockups carousel (the "Not a mockup" section) on every
+       viewport. Same step+pause+resume pattern as the modules carousel above,
+       but scrolls slower (5s) since each slide is a denser screenshot. -->
+  <script>
+    (function () {
+      var c = document.getElementById('mockups-carousel');
+      if (!c) return;
+      var STEP_MS = 5000;
+      var GAP_PX  = 24; // matches Tailwind gap-6 (worst-case)
+      var timer   = null;
+      var paused  = false;
+
+      function advance() {
+        if (paused) return;
+        var first = c.children[0];
+        if (!first) return;
+        var step = first.getBoundingClientRect().width + GAP_PX;
+        var maxScroll = c.scrollWidth - c.clientWidth - 4;
+        if (c.scrollLeft >= maxScroll) {
+          c.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          c.scrollBy({ left: step, behavior: 'smooth' });
+        }
+      }
+      function start() { stop(); timer = setInterval(advance, STEP_MS); }
+      function stop()  { if (timer) { clearInterval(timer); timer = null; } }
+
+      var resumeT;
+      function pauseAndResume() {
+        paused = true;
+        clearTimeout(resumeT);
+        resumeT = setTimeout(function () { paused = false; }, 2500);
+      }
+      ['touchstart', 'pointerdown', 'mouseenter'].forEach(function (ev) {
+        c.addEventListener(ev, pauseAndResume, { passive: true });
+      });
       window.addEventListener('resize', start);
       start();
     })();
