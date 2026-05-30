@@ -12,9 +12,9 @@
   <meta property="og:description" content="From bilty to billing, without the spreadsheets. Trips, bilties, GST invoices, annexures, reconciliation — live, multi-user, one screen.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://traxn.in">
-  <meta property="og:image" content="https://traxn.in/assets/logo.jpeg">
+  <meta property="og:image" content="https://traxn.in/assets/logo-superadmin.png">
 
-  <link rel="icon" href="/assets/logo.jpeg">
+  <link rel="icon" href="/assets/favicon.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
@@ -103,21 +103,20 @@
   <!-- =================================================================== -->
   <!-- NAV                                                                  -->
   <!-- =================================================================== -->
-  <header class="fixed top-0 inset-x-0 z-40 backdrop-blur-md bg-white/80 border-b border-navy-900/5">
+  <header class="fixed top-0 inset-x-0 z-40 bg-navy-900 border-b border-navy-900">
     <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-      <a href="#top" class="flex items-center gap-2 group">
-        <img src="./assets/logo.jpeg" alt="Traxn" class="h-8 w-auto logo-mark" width="160" height="50">
-        <span class="font-display font-extrabold text-base text-sky-500 leading-none -ml-1">Cargo</span>
+      <a href="#top" class="flex items-center group">
+        <img src="./assets/logo-superadmin.png" alt="TraxnCargo" class="h-9 w-auto logo-mark" width="276" height="90">
       </a>
-      <nav class="hidden md:flex items-center gap-8 text-sm text-navy-900/70 font-medium">
-        <a href="#modules" class="hover:text-navy-900 transition">Modules</a>
-        <a href="#usecases" class="hover:text-navy-900 transition">Use cases</a>
-        <a href="#different" class="hover:text-navy-900 transition">Why us</a>
-        <a href="#contact" class="hover:text-navy-900 transition">Contact</a>
+      <nav class="hidden md:flex items-center gap-8 text-sm text-white/70 font-medium">
+        <a href="#modules" class="hover:text-white transition">Modules</a>
+        <a href="#usecases" class="hover:text-white transition">Use cases</a>
+        <a href="#different" class="hover:text-white transition">Why us</a>
+        <a href="#contact" class="hover:text-white transition">Contact</a>
       </nav>
       <div class="flex items-center gap-3">
-        <a href="https://app.traxn.in" class="hidden sm:inline-flex text-sm text-navy-900/70 hover:text-navy-900 transition font-medium">Sign in</a>
-        <a href="https://app.traxn.in" class="inline-flex items-center gap-1.5 bg-navy-900 text-white hover:bg-navy-700 transition px-4 py-2 rounded-lg text-sm font-semibold">
+        <a href="https://app.traxn.in" class="hidden sm:inline-flex text-sm text-white/70 hover:text-white transition font-medium">Sign in</a>
+        <a href="https://app.traxn.in" class="inline-flex items-center gap-1.5 bg-sky-500 text-navy-900 hover:bg-sky-400 transition px-4 py-2 rounded-lg text-sm font-bold">
           Open the app
           <svg viewBox="0 0 24 24" class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
         </a>
@@ -448,21 +447,20 @@
   <!-- =================================================================== -->
   <!-- FOOTER                                                               -->
   <!-- =================================================================== -->
-  <footer class="border-t border-navy-900/5 py-10 bg-white">
-    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-navy-900/55">
-      <div class="flex items-center gap-2">
-        <img src="./assets/logo.jpeg" alt="Traxn" class="h-6 w-auto logo-mark" width="120" height="38">
-        <span class="font-display font-extrabold text-sky-500 text-sm -ml-1">Cargo</span>
-        <span class="text-navy-900/20 mx-2">·</span>
-        <span>by Infocomiva</span>
+  <footer class="bg-navy-900 py-12">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-5 text-sm text-white/60">
+      <div class="flex items-center gap-3">
+        <img src="./assets/logo-superadmin.png" alt="TraxnCargo" class="h-7 w-auto logo-mark" width="215" height="70">
+        <span class="text-white/20 mx-1">·</span>
+        <span class="text-white/60">by Infocomiva</span>
       </div>
       <div class="flex items-center gap-6 font-medium">
-        <a href="#modules" class="hover:text-navy-900 transition">Modules</a>
-        <a href="#different" class="hover:text-navy-900 transition">Why us</a>
-        <a href="https://app.traxn.in" class="hover:text-navy-900 transition">Sign in</a>
-        <a href="mailto:hello@traxn.in" class="hover:text-navy-900 transition">Contact</a>
+        <a href="#modules" class="hover:text-white transition">Modules</a>
+        <a href="#different" class="hover:text-white transition">Why us</a>
+        <a href="https://app.traxn.in" class="hover:text-white transition">Sign in</a>
+        <a href="mailto:hello@traxn.in" class="hover:text-white transition">Contact</a>
       </div>
-      <div>© <span id="y"></span> Infocomiva. All rights reserved.</div>
+      <div class="text-white/50">© <span id="y"></span> Infocomiva. All rights reserved.</div>
     </div>
     <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
   </footer>
