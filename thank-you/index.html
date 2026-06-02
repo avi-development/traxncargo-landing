@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>Thank you — TraxnCargo</title>
+  <meta name="description" content="Thanks for booking a demo with TraxnCargo. Our onboarding team will reach out within 24 hours.">
+
+  <!-- Thank-you pages shouldn't appear in search results, but do allow
+       link discovery so the back-to-landing link still flows PageRank. -->
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://traxn.in/thank-you/">
+
+  <meta name="theme-color" content="#0B1E3F">
+  <link rel="icon" type="image/jpeg" href="/assets/favicon.jpg">
+  <link rel="apple-touch-icon" href="/assets/favicon.jpg">
+
+  <!-- Open Graph (for users who share the thank-you URL — unusual but harmless) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="TraxnCargo">
+  <meta property="og:title" content="Thank you — TraxnCargo">
+  <meta property="og:description" content="We received your demo request. Talk to you in 24 hours.">
+  <meta property="og:url" content="https://traxn.in/thank-you/">
+  <meta property="og:image" content="https://traxn.in/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_IN">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', 'Inter', 'ui-sans-serif', 'system-ui'],
+          },
+          colors: {
+            navy:  { 50: '#f0f4fa', 100: '#dbe5f0', 900: '#0B1E3F', 950: '#06122b' },
+            sky:   { 500: '#00AEEF' },
+          },
+        },
+      },
+    }
+  </script>
+
+  <!-- ============================================================
+       GA4 — page view of /thank-you is what you mark as the
+       conversion event in the GA4 dashboard. The explicit
+       generate_lead event below is also fired so you can build
+       audiences / report on it directly.
+       ============================================================ -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B24KY4T7WX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B24KY4T7WX');
+
+    // Explicit conversion fire. event_name="generate_lead" is one of
+    // GA4's recommended ecommerce events — it shows up natively in the
+    // Realtime + Conversions reports without any custom-event setup.
+    gtag('event', 'generate_lead', {
+      event_category: 'engagement',
+      event_label: 'demo_request',
+      value: 1,
+      currency: 'INR',
+    });
+  </script>
+
+  <!-- Microsoft Clarity — captures the thank-you page session too. -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x0kx5805b7");
+  </script>
+</head>
+<body class="bg-white text-navy-900 selection:bg-sky-500/20 selection:text-navy-900">
+
+  <!-- Top bar — minimal, mirrors the cargo page nav -->
+  <header class="bg-navy-900 px-5 py-4">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <a href="/cargo" class="inline-flex items-center gap-2 text-white">
+        <img src="/assets/logo-superadmin.png" alt="TraxnCargo" class="h-8 w-auto" width="276" height="90">
+      </a>
+      <a href="/cargo" class="text-sm text-white/80 hover:text-white transition">← Back to TraxnCargo</a>
+    </div>
+  </header>
+
+  <main class="min-h-[80vh] flex items-center justify-center px-5 py-16 sm:py-24">
+    <div class="max-w-xl w-full text-center">
+
+      <!-- Big tick -->
+      <div class="mx-auto w-20 h-20 rounded-full bg-emerald-50 flex items-center justify-center mb-8">
+        <svg viewBox="0 0 24 24" class="w-10 h-10 text-emerald-500" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 6 9 17l-5-5"/>
+        </svg>
+      </div>
+
+      <h1 class="font-display text-4xl sm:text-5xl font-black leading-tight tracking-tight mb-4">
+        Thanks &mdash; we&rsquo;re on it.
+      </h1>
+
+      <p class="text-navy-900/70 text-base sm:text-lg leading-relaxed mb-8">
+        Our onboarding team will reach out on your phone &amp; email within
+        <strong class="text-navy-900">24 hours</strong>. Keep an eye out for a WhatsApp from
+        a +91 number &mdash; that&rsquo;s us.
+      </p>
+
+      <!-- What happens next — three short steps so the wait feels purposeful -->
+      <div class="text-left bg-navy-50 border border-navy-100 rounded-2xl p-5 sm:p-6 mb-8">
+        <h2 class="font-display text-lg font-black mb-4">What happens next</h2>
+        <ol class="space-y-3 text-sm text-navy-900/80">
+          <li class="flex gap-3">
+            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-sky-500 text-white text-xs font-bold flex items-center justify-center">1</span>
+            <span>We&rsquo;ll WhatsApp you to confirm the demo slot &mdash; usually within a few hours.</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-sky-500 text-white text-xs font-bold flex items-center justify-center">2</span>
+            <span>A 20-minute call walks through your bilty / trip flow on a live screen.</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-sky-500 text-white text-xs font-bold flex items-center justify-center">3</span>
+            <span>You get a 14-day free trial &mdash; no card &mdash; with your own company set up.</span>
+          </li>
+        </ol>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="/cargo" class="inline-flex items-center justify-center gap-1.5 bg-navy-900 text-white hover:bg-navy-700 transition px-6 py-3 rounded-lg text-sm font-semibold">
+          Back to TraxnCargo
+        </a>
+        <a href="https://wa.me/919832150751" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-1.5 border border-navy-900/15 text-navy-900 hover:bg-navy-50 transition px-6 py-3 rounded-lg text-sm font-semibold">
+          WhatsApp us now
+        </a>
+      </div>
+
+      <p class="mt-10 text-xs text-navy-900/50">
+        Wrong details? Email <a href="mailto:hello@traxn.in" class="underline hover:text-navy-900">hello@traxn.in</a> and we&rsquo;ll update.
+      </p>
+    </div>
+  </main>
+
+  <footer class="border-t border-navy-100 py-6 text-center text-xs text-navy-900/50">
+    &copy; <span id="yr"></span> TraxnCargo &middot; A product by Infocomiva
+  </footer>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

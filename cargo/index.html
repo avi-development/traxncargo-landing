@@ -247,6 +247,32 @@
               mask-image: linear-gradient(to right, transparent 0, black 6%, black 94%, transparent 100%);
     }
   </style>
+
+  <!-- ============================================================
+       Analytics — Google Analytics 4 (GA4)
+       Loads async at the end of head so it doesn't block paint.
+       The thank-you page also includes this so the conversion is
+       attributed to the same session.
+       ============================================================ -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B24KY4T7WX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B24KY4T7WX');
+  </script>
+
+  <!-- ============================================================
+       Analytics — Microsoft Clarity (heatmaps + session replays)
+       Free, no impact on Core Web Vitals.
+       ============================================================ -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x0kx5805b7");
+  </script>
 </head>
 <body class="bg-white text-navy-900 selection:bg-sky-500/20 selection:text-navy-900 overflow-x-hidden">
 
@@ -1248,9 +1274,34 @@
       submitBtn.textContent = 'Sending…';
       try {
         await addDoc(collection(db, 'leads'), data);
-        formWrap.classList.add('hidden');
-        successBox.classList.remove('hidden');
         form.reset();
+
+        // GA4 conversion event — fired BEFORE redirect so the event
+        // ships under the source page's URL (cargo) for attribution.
+        // The thank-you page also auto-records a page_view which you
+        // mark as a conversion in the GA4 dashboard for cleaner
+        // funnel reporting.
+        try {
+          if (typeof gtag === 'function') {
+            gtag('event', 'generate_lead', {
+              event_category: 'engagement',
+              event_label: 'demo_request',
+              value: 1,
+            });
+          }
+        } catch (_) { /* analytics never blocks UX */ }
+
+        // Redirect to the standalone Thank-You page so GA4 / Clarity
+        // can track the conversion as a distinct URL hit (and so
+        // remarketing audiences can target visitors who reached it).
+        // Inline success box is the fallback if the redirect throws.
+        try {
+          window.location.assign('/thank-you/');
+          return;
+        } catch (_) {
+          formWrap.classList.add('hidden');
+          successBox.classList.remove('hidden');
+        }
       } catch (err) {
         console.error('[leads] submit failed', err);
         errBox.textContent =

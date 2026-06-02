@@ -25,6 +25,23 @@
   <meta name="twitter:image" content="https://traxn.in/assets/og-image.jpg">
   <meta http-equiv="refresh" content="0;url=/cargo">
   <script>window.location.replace('/cargo');</script>
+
+  <!-- GA4 — fires even on this 0-second redirect page so we capture
+       the original referrer / UTM params before the bounce. -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B24KY4T7WX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B24KY4T7WX');
+  </script>
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x0kx5805b7");
+  </script>
   <style>
     html, body { height: 100%; margin: 0; }
     body {
