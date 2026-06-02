@@ -1,0 +1,16 @@
+# https://traxn.in/robots.txt
+# Tells search-engine crawlers what they may visit on this domain.
+# This file lives at the apex (traxn.in/robots.txt) — the conventional
+# location every crawler checks first.
+#
+# The actual TraxnCargo app at app.traxn.in has its OWN robots.txt
+# (Disallow: /) — it's a private, auth-gated app and should NOT
+# appear in search results. Only the marketing site at traxn.in is
+# indexable.
+
+User-agent: *
+Allow: /
+Disallow: /zohoverify/
+
+# Tell every crawler where to find the sitemap.
+Sitemap: https://traxn.in/sitemap.xml
