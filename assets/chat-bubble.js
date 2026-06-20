@@ -17,9 +17,11 @@
   var path = (location.pathname || '').replace(/\/+$/, '');
   if (path === '/estimator' || path.endsWith('/estimator') || path === '/chat' || path.endsWith('/chat')) return;
 
-  // Source of the embedded chat. The Infocomiva estimator is the live
-  // chat backend today; swap to a traxn.in route when we port it.
-  var CHAT_URL = 'https://infocomiva.live/estimator';
+  // Source of the embedded chat. Points at the standalone chat-only.html
+  // on the Infocomiva site — same Super Admin queue and live wizard, but
+  // without the marketing page chrome that loaded when we pointed at
+  // /estimator. Swap to a traxn.in route when we port it natively.
+  var CHAT_URL = 'https://infocomiva.live/chat-only.html';
 
   var btn = null;
   var overlay = null;
